@@ -2,7 +2,6 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{graphicx}
 \usepackage{xcolor}
-\usepackage{hyperref}
 \usepackage{fancyhdr}
 \usepackage{titlesec}
 \usepackage{enumitem}
@@ -11,73 +10,124 @@
 \usepackage{sectsty}
 \usepackage{longtable}
 \usepackage{array}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+
+% --- CRITICAL FONT FIXES FOR XELATEX ---
+\usepackage{fontspec}
+% Using standard system fonts natively eliminates the missing U+2014 / U+201C characters!
+\setmainfont{Liberation Serif}[
+  Scale=1.0,
+  Ligatures=TeX
+]
+\setsansfont{Liberation Sans}[Scale=1.0]
+
 \usepackage{csquotes}
 
-% --- FIX FOR RECENT PANDOC TABLE BUG ("No counter 'none' defined") ---
+% --- PANDOC COMPATIBILITY RECS ---
 \newcounter{none} 
 \usepackage{calc}
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-% --- END FIX ---
 
-% Fix for Pandoc table issues
-\newcolumntype{Y}{>{\centering\arraybackslash}X}
-\newcolumntype{L}{>{\raggedright\arraybackslash}X}
-\newcolumntype{C}{>{\centering\arraybackslash}X}
-\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+% Handle pandoc blockquote styling
+\renewenvironment{quote}
+  {\begin{list}{}{\rightmargin=\leftmargin}\item\em}
+  {\end{list}}
+% --- END PANDOC BLOCK ---
 
 % Color scheme - Cybertechna branding
 \definecolor{cyberblue}{RGB}{0, 51, 102}
 \definecolor{cyberred}{RGB}{204, 0, 0}
 \definecolor{darkblue}{RGB}{0, 32, 96}
+\definecolor{charcoal}{RGB}{51, 51, 51}
 
-% Header/Footer
+% Document Global Styling
+\makeatletter
+\def\@author{\color{charcoal}}
+\makeatother
+
+% Header/Footer Configuration
 \pagestyle{fancy}
 \fancyhf{}
-\rhead{\small {$category$}}
-\lfoot{\small {$series$}}  
+\rhead{\small\color{gray}{$category$}}
+\lfoot{\small\color{gray}{$series$}}  
 \cfoot{\thepage}
 \renewcommand{\headrulewidth}{0.5pt}
 
-% Title styling
+% Section and Title styling
 \titleformat{\section}{\Large\bfseries\color{cyberblue}}{}{0em}{}
 \titleformat{\subsection}{\large\bfseries\color{cyberblue}}{}{0em}{}
-
-% Document metadata
-\title{$title$} 
-\author{$author$}
+\titlespacing*{\section}{0pt}{2.5ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{2ex plus 0.5ex minus .2ex}{1.2ex plus .2ex}
 
 \begin{document}
-% Cover Page
+
+% --- Cover Page ---
 \begin{titlepage}
     \centering
-    \vspace*{2cm}
+    \vspace*{1.5cm}
     
-    \includegraphics[width=0.6\textwidth]{img/cybertechna_logo_banner_tagline.png} 
+    % If the image doesn't load or missing, use placeholder styling
+    \makeatletter
+    \@ifundefined{includegraphics}{}{%
+      \includegraphics[width=0.55\textwidth]{img/cybertechna_logo_banner_tagline.png}\par
+    }
+    \makeatother
     
-    \vspace{1cm}
-    \colorbox{darkblue}{\color{white}\parbox{\textwidth}{\centering\Large\bfseries
-    {$header$}}}
+    \vspace{2cm}
+    \colorbox{darkblue}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{\centering\vspace{6pt}\color{white}\normalsize\bfseries {$header$}\vspace{6pt}}}
     
-    \vspace{1.5cm}
-    {\Huge\bfseries {$title$}}
+    \vspace{2.5cm}
+    {\Huge\bfseries\color{cyberblue} {$title$}\par}
     
-    \vspace{0.5cm}
-    {\large\itshape {$subtitle$}}
+    \vspace{0.8cm}
+    {\large\itshape\color{charcoal} {$subtitle$}\par}
     
-    \vspace{3cm}
+    \vfill
+    
     \begin{flushleft}
-    \small
-    Prepared by: {$preparedby$} \\
-    Published: {$date$} \\
-    Target Audience: {$audience$}
+    \small\color{charcoal}
+    \textbf{Prepared by:} {$preparedby$} \\
+    \textbf{Published:} {$date$} \\
+    \textbf{Target Audience:} {$audience$}
     \end{flushleft}
-    
 \end{titlepage}
 
+\newpage
+\pagenumbering{arabic}
+
+% --- Body Content ---
 $body$
+
+% --- Standalone Back-Page Styling ---
+\newpage
+\thispagestyle{empty}
+\vspace*{3cm}
+\centering
+
+\makeatletter
+\@ifundefined{includegraphics}{}{%
+  \includegraphics[width=0.4\textwidth]{img/cybertechna_logo_banner_tagline.png}\par
+\vspace{1.5cm}
+}
+\makeatother
+
+{\Large\bfseries\color{cyberblue} Secure Your Executive Horizon\par}
+\vspace{0.5cm}
+\begin{minipage}{0.8\textwidth}
+\centering\color{charcoal}
+Transitioning your organization from baseline IT compliance to true board-level cyber resilience requires proven, executive-level technical foresight. Whether establishing an internal CISO office or deploying a flexible, elite fractional VCISO structure, Cybertechna LLC provides the governance blueprint your leadership needs.
+\end{minipage}
+
+\vspace{2cm}
+{\small\bfseries\color{cyberblue} DIRECT INQUIRIES}\par
+{\small\color{charcoal} info@cybertechna.com}\par
+
+\vspace{0.5cm}
+{\small\bfseries\color{cyberblue} CORPORATE OFFICE}\par
+{\small\color{charcoal} 850-737-1706}\par
+
+\vfill
+{\footnotesize\color{gray} \copyright\ 2026 Cybertechna LLC. All rights reserved. | Strategic Advisory \& Cyber Governance Services}
 
 \end{document}
 
