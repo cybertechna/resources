@@ -1,4 +1,4 @@
-\documentclass[11pt, letter]{article}
+\documentclass[11pt, letterpaper]{article}
 \usepackage[margin=1in]{geometry}
 \usepackage{graphicx}
 \usepackage{xcolor}
@@ -9,6 +9,8 @@
 \usepackage{tabularx}
 \usepackage{booktabs}
 \usepackage{sectsty}
+\usepackage{longtable}
+\usepackage{array}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{csquotes}
@@ -22,7 +24,7 @@
 \pagestyle{fancy}
 \fancyhf{}
 \rhead{\small {$category$}}
-\lfoot{\small {$series$}}  %Securing the Future: The Strategic CISO}
+\lfoot{\small {$series$}}  
 \cfoot{\thepage}
 \renewcommand{\headrulewidth}{0.5pt}
 
@@ -32,11 +34,7 @@
 
 % Document metadata
 \title{$title$} 
-\subtitle{$subtitle$}
 \author{$author$}
-\date{$date$}
-\preparedby{$preparedby$}
-\audience{$audience$}
 
 \begin{document}
 % Cover Page
@@ -44,11 +42,11 @@
     \centering
     \vspace*{2cm}
     
-    \includegraphics[width=0.6\textwidth]{img/cybertechna_banner_logo.png} % Replace with your logo path
+    \includegraphics[width=0.6\textwidth]{img/cybertechna_logo_banner_tagline.png} 
     
     \vspace{1cm}
     \colorbox{darkblue}{\color{white}\parbox{\textwidth}{\centering\Large\bfseries
-    {$header$}}
+    {$header$}}}
     
     \vspace{1.5cm}
     {\Huge\bfseries {$title$}}
@@ -66,6 +64,6 @@
     
 \end{titlepage}
 
-
+$body$
 
 \end{document}
