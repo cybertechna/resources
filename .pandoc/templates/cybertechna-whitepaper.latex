@@ -59,7 +59,7 @@
     
     \vspace{1cm}
     \colorbox{darkblue}{\color{white}\parbox{\textwidth}{\centering\Large\bfseries
-    {$header$}}}}
+    {$header$}}}
     
     \vspace{1.5cm}
     {\Huge\bfseries {$title$}}
