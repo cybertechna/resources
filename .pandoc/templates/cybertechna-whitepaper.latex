@@ -13,12 +13,13 @@
 
 % --- CRITICAL FONT FIXES FOR XELATEX ---
 \usepackage{fontspec}
-% Using standard system fonts natively eliminates the missing U+2014 / U+201C characters!
-\setmainfont{Liberation Serif}[
-  Scale=1.0,
-  Ligatures=TeX
+\setmainfont{Inter}[
+  Scale=0.95, % Inter runs slightly large, 0.95 scales it beautifully to 11pt
+  Ligatures=TeX,
+  BoldFont={* Bold},
+  ItalicFont={* Italic}
 ]
-\setsansfont{Liberation Sans}[Scale=1.0]
+\setsansfont{Inter}[Scale=0.95]
 
 \usepackage{csquotes}
 
