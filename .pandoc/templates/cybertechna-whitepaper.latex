@@ -15,6 +15,27 @@
 \usepackage[T1]{fontenc}
 \usepackage{csquotes}
 
+% --- CRITICAL PANDOC TABLE FIXES ---
+\usepackage{calc} % Needed for table column calculations
+\makeatletter
+\let\oldlt\longtable
+\let\endoldlt\endlongtable
+\makeatother
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% If pandoc wants to use normal tables
+\usepackage{array}
+% Handle the \real macro calculation syntax pandoc uses
+\usepackage{etoolbox}
+% --- END PANDOC FIXES ---
+
+% Fix for Pandoc table issues
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+
 % Color scheme - Cybertechna branding
 \definecolor{cyberblue}{RGB}{0, 51, 102}
 \definecolor{cyberred}{RGB}{204, 0, 0}
@@ -42,11 +63,12 @@
     \centering
     \vspace*{2cm}
     
-    \includegraphics[width=0.6\textwidth]{img/cybertechna_logo_banner_tagline.png} 
+    % Note: Ensure this image path is correct relative to where you run the command!
+    %\includegraphics[width=0.6\textwidth]{img/cybertechna_logo_banner_tagline.png} 
     
     \vspace{1cm}
     \colorbox{darkblue}{\color{white}\parbox{\textwidth}{\centering\Large\bfseries
-    {$header$}}}
+    {$header$}}}}
     
     \vspace{1.5cm}
     {\Huge\bfseries {$title$}}
@@ -59,11 +81,13 @@
     \small
     Prepared by: {$preparedby$} \\
     Published: {$date$} \\
-        Target Audience: {$audience$}
+    Target Audience: {$audience$}
     \end{flushleft}
     
 \end{titlepage}
 
 $body$
+
+\end{document}
 
 \end{document}

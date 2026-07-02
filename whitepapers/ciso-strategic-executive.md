@@ -39,7 +39,7 @@ Transitioning your organization....
 
 # Secure Your Executive Horizon
 
-*strong* DIRECT INQUIRIES: *strong* info@cybertechna.com
+** DIRECT INQUIRIES: ** info@cybertechna.com
 
-*strong* CORPORATE OFFICE: *strong* 850-737-1706
+** CORPORATE OFFICE: ** 850-737-1706
 
