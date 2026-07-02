@@ -11,6 +11,7 @@
 \usepackage{sectsty}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{csquotes}
 
 % Color scheme - Cybertechna branding
 \definecolor{cyberblue}{RGB}{0, 51, 102}
@@ -20,8 +21,8 @@
 % Header/Footer
 \pagestyle{fancy}
 \fancyhf{}
-\rhead{\small CYBERTECHNA EXECUTIVE BRIEFING}
-\lfoot{\small $footer$}  %Securing the Future: The Strategic CISO}
+\rhead{\small {$category$}}
+\lfoot{\small {$series$}}  %Securing the Future: The Strategic CISO}
 \cfoot{\thepage}
 \renewcommand{\headrulewidth}{0.5pt}
 
@@ -30,84 +31,41 @@
 \titleformat{\subsection}{\large\bfseries\color{cyberblue}}{}{0em}{}
 
 % Document metadata
-\title{$title$} %The Strategic Imperative: \\ Why Every Board and C-Suite Needs a Dedicated CISO}
+\title{$title$} 
 \subtitle{$subtitle$}
 \author{$author$}
 \date{$date$}
 \preparedby{$preparedby$}
-\preparedfor{$preparedfor$}
+\audience{$audience$}
 
 \begin{document}
-
 % Cover Page
 \begin{titlepage}
     \centering
     \vspace*{2cm}
     
-    \includegraphics[width=0.6\textwidth]{cybertechna-logo.png} % Replace with your logo path
+    \includegraphics[width=0.6\textwidth]{img/cybertechna_banner_logo.png} % Replace with your logo path
     
     \vspace{1cm}
-    \colorbox{darkblue}{\color{white}\parbox{\textwidth}{\centering\Large\bfseries STRATEGIC CORPORATE GOVERNANCE}}
+    \colorbox{darkblue}{\color{white}\parbox{\textwidth}{\centering\Large\bfseries
+    {$header$}}
     
     \vspace{1.5cm}
-    {\Huge\bfseries The Strategic Imperative: \\ Why Every Board and C-Suite Needs a Dedicated CISO}
+    {\Huge\bfseries {$title$}}
     
     \vspace{0.5cm}
-    {\large\itshape Elevating Information Security from a Technical Standard to a Core Business Enabler}
+    {\large\itshape {$subtitle$}}
     
     \vspace{3cm}
     \begin{flushleft}
     \small
-    Prepared by: Cybertechna LLC \\
-    Published: June 2026 \\
-    Target Audience: Chief Executive Officers, Board Directors, Managing Directors
+    Prepared by: {$preparedby$} \\
+    Published: {$date$} \\
+        Target Audience: {$audience$}
     \end{flushleft}
     
 \end{titlepage}
 
-% Executive Summary
-\section*{Executive Summary}
 
-In the modern economy, technology is no longer an auxiliary tool supporting administrative tasks; it is the fundamental fabric upon which business strategies are designed and executed. However, as organizations of all sizes rapidly absorb cloud architecture, artificial intelligence, and automated supply networks, their threat vectors expand exponentially.
-
-Historically, information security has been delegated to isolated IT managers, buried underneath operational hierarchies. This structure creates dangerous blind spots. True corporate resilience demands that information security be treated as an essential element of fiduciary duty and corporate strategy. This paper demonstrates why organizations—regardless of size or market cap—must integrate a Chief Information Security Officer (CISO) directly into the executive leadership team (the C-suite) and establish direct reporting lines to the Board of Directors.
-
-\begin{quote}
-``Cyber risk is not a technical complication. It is a baseline operational, legal, financial, and strategic risk that directly dictates an enterprise's market valuation and long-term viability.''
-\end{quote}
-
-\subsection*{1. The Shift from Technical Custodian to Business Enabler}
-
-For decades, enterprise security suffered under a foundational flaw: the belief that cybersecurity is an IT problem. ... (Continue with full content from PDF)
-
-% Add remaining sections similarly
-\section*{2. Why Company Size is Irrelevant to Cyber Risk}
-
-% Table example
-\begin{table}[h]
-\centering
-\begin{tabularx}{\textwidth}{lXX}
-\toprule
-\textbf{Governance Dimension} & \textbf{Traditional IT / Bureaucratic Approach} & \textbf{Strategic C-Suite / Board CISO Approach} \\
-\midrule
-Regulatory \& Legal Compliance & Reactive tick-the-box... & Proactive integration... \\
-Capital Allocation \& ROI & Opaque... & Quantified Risk Management... \\
-Crisis Leadership \& Resilience & Technical firefighting... & Enterprise-wide... \\
-\bottomrule
-\end{tabularx}
-\end{table}
-
-% Continue for other sections...
-
-\section*{Conclusion: Governance for the Next Decade}
-
-% Final call to action
-\section*{Secure Your Executive Horizon}
-
-Transitioning your organization... 
-
-\textbf{DIRECT INQUIRIES} \quad info@cybertechna.com
-
-\textbf{CORPORATE OFFICE} \quad 850-737-1706
 
 \end{document}
