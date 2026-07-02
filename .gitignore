@@ -1,0 +1,51 @@
+# ==============================================================================
+# Cybertechna Core Web Project .gitignore Template
+# ==============================================================================
+
+# --- Operating System Clutter ---
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon_
+._*
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# --- Local Development IDEs / Editors ---
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*~
+
+# --- System Logs & Temporary Dumps ---
+*.log
+logs/
+*.tmp
+*.bak
+*.pid
+
+# --- Local Environment Configurations ---
+# (Never commit real passwords, API tokens, or server secrets to GitHub)
+.env
+.env.local
+.env.*.local
+config.local.php
+
+# --- Core Web Asset Caches & Dependencies ---
+# (If you use Node/npm tools down the line)
+node_modules/
+.npm/
+dist/
+build/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
+
