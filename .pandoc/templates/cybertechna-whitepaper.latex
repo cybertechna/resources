@@ -34,7 +34,7 @@
 \setmainfont{Arial}[Scale=1.05, Ligatures=TeX]
 \setsansfont{Arial}[Scale=1.05]
 \usepackage{csquotes}
-\setstrech{1.15}
+\setstretch{1.15}
 
 % --- 5. REMOVE STANDARD LATEX NUMBERING ---
 \setcounter{secnumdepth}{0} 
