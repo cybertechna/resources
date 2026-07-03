@@ -49,16 +49,18 @@
 \titlespacing*{\subsection}{0pt}{2.5ex plus 0.5ex minus .2ex}{1.5ex plus .2ex}
 
 % --- 7. PROFESSIONAL TABLE STYLING ---
-\renewcommand{\arraystretch}{1.4} 
+\renewcommand{\arraystretch}{1.5} % Extra breathing room for executive reading
 
-% Dynamic table color injections at runtime
 \AtBeginDocument{
   \let\oldlongtable\longtable
   \renewcommand{\longtable}{
     \color{charcoal}\small
     \oldlongtable
+    % Create a dark blue banner for the table title that spans all 3 columns
+    \multicolumn{3}{c}{\cellcolor{darkblue}\color{white}\bfseries\large GOVERNANCE COMPARISON BRIEFING} \\ \hline
   }
-  \rowcolors{1}{lightgray!50}{white} % Alternating row striping
+  % Colors the header row darkblue and text white, then handles alternating gray rows
+  \rowcolors{1}{lightgray!40}{white}
 }
 
 \renewcommand{\heavyrulewidth}{1.5pt}
