@@ -115,7 +115,7 @@
   label={\color{cyberblue}\large\textbullet} % Vibrant brand bullet points
 }
 
-\newcommand{\bullethead}[1]{{\bfseries\color{cyberblue}#1}}
+\renewcommand{\bullethead}[1]{{\bfseries\color{cyberblue}#1}}
 
 % --- 10. HEADER/FOOTER CONFIGURATION ---
 \pagestyle{fancy}
