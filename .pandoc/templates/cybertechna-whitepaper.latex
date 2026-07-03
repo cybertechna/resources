@@ -14,11 +14,13 @@
 
 % --- HEX COLOR CONFIGURATION ---
 \usepackage{xcolor}
-\definecolor{cyberblue}{HTML}{1055cc}  
+\definecolor{cyberblue}{HTML}{1055CC}  
 \definecolor{cyberred}{HTML}{CC0100}   % Your brand red
 \definecolor{darkblue}{HTML}{061f4f}
 \definecolor{charcoal}{HTML}{333333}
 \definecolor{lightgray}{HTML}{F4F6F8}
+\definecolor{slate}{HTML}{010619}
+\definecolor{navyblue}{HTML}{172554}
 
 % --- GLOBAL FONTS & TYPOGRAPHY ---
 \usepackage{fontspec}
@@ -71,7 +73,7 @@
 \begin{titlepage}
     % FIXED: Uses standard top/bottom color syntax and rotates it 45 degrees for a clean diagonal blend
     \begin{tikzpicture}[remember picture, overlay]
-        \shade[top color=cyberblue, bottom color=darkblue, shading angle=45] 
+        \shade[top color=slate, bottom color=navyblue, shading angle=45] 
             (current page.north west) rectangle (current page.south east);
     \end{tikzpicture}
     
