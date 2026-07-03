@@ -1,0 +1,71 @@
+ \documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[dvipsnames,svgnames,x11names]{xcolor}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{bgblue}{RGB}{15, 30, 55}
+\definecolor{accentblue}{RGB}{60, 100, 180}
+\definecolor{accentred}{RGB}{200, 50, 50}
+\definecolor{logoblue}{RGB}{0, 110, 180}
+\definecolor{logored}{RGB}{200, 50, 50}
+
+\pagecolor{bgblue}
+\color{white}
+
+\begin{document}
+\pagestyle{empty}
+
+\vspace*{1cm}
+
+\begin{figure}[H]
+    \centering
+    \colorbox{white}{
+        \makebox[0.4\textwidth][c]{
+            \vspace{0.5cm}
+            \Large \textbf{\textcolor{logoblue}{<cyber}\textcolor{logored}{techna>}}
+            \vspace{0.5cm}
+        }
+    }
+\end{figure}
+
+\vspace{1.5cm}
+
+\colorbox{accentblue}{
+    \makebox[0.9\textwidth][l]{
+        \hspace{0.2cm}
+        \small \textbf{STRATEGIC CORPORATE GOVERNANCE}
+        \hspace{0.2cm}
+    }
+}
+
+\vspace{0.5cm}
+
+{\Huge \textbf{The Strategic Imperative:}} \\
+{\Huge \textbf{Why Every Board and C-Suite Needs a}} \\
+{\Huge \textbf{Dedicated CISO}}
+
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.5pt}
+\vspace{0.5cm}
+
+{\Large \textit{Elevating Information Security from a Technical Standard to a Core Business Enabler}}
+
+\vspace{1.5cm}
+
+\begin{tikzpicture}
+    \draw[line width=2pt, left color=accentblue, right color=accentred] (0,0) -- (5,0);
+\end{tikzpicture}
+
+\vfill
+
+\noindent \textbf{Prepared by:} Cybertechna LLC \\
+\textbf{Published:} June 2026 \\
+\textbf{Target Audience:} Chief Executive Officers, Board Directors, Managing Directors
+
+\vspace{1cm}
+
+\end{document}{"result_id":"11f540fa-f129-46b1-ae30-b72defba0586"}
