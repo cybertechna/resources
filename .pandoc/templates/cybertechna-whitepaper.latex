@@ -183,7 +183,7 @@ Transitioning your organization from baseline IT compliance to true board-level 
     sharp corners,
     boxrule=0pt,
     leftrule=4pt,         % Left border only
-    colborder=cyberred,    % Brand red bar
+    colframe=cyberred,    % Brand red bar
     colback=lightgray!30,  % Subtle backing
     left=15pt, right=15pt, top=15pt, bottom=15pt
 ]
