@@ -1,13 +1,26 @@
 ---
+# Document metadata
 title: "The Strategic Imperative: \\ Why Every Board and C-Suite Needs a Dedicated CISO"
 subtitle: "Elevating Information Security from a Technical Standard to a Core Business Enabler"
 author: "Kevin Robinson | CISSP, DDN.QTE, Associate C|CISO"
-date: "June 2026"
+date: "2026-07-02"
 preparedby: "Cybertechna LLC"
 audience: "Chief Executive Officers, Board Directors, Managing Directors"
 category: "CYBERTECHNA EXECUTIVE BRIEFING"
 series: "Securing the Future: The Strategic CISO"
 header: "STRATEGIC CORPORATE GOVERNANCE"
+
+# Output Control
+output-file: "../PDFs/cybertechna_strategic_ciso_whitepaper.pdf"
+template: "../.pandoc/templates/whitepaper.pdf"
+pdf-engine: "lualatex"
+
+# Other issues
+toc: true
+toc-depth: 2
+numbersections: false
+papersize: letter
+fontsize: 12pt
 ---
 # Executive Summary
 In the modern economy, technology is no longer an auxiliary tool supporting administrative tasks; it is the fundamental fabric upon which business strategies are designed and executed. However, as organizations of all sizes rapidly absorb cloud architecture, artificial intelligence, and automated supply networks, their threat vectors expand exponentially.
