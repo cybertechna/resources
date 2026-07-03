@@ -63,13 +63,14 @@ accountable for digital risk oversight.
 Boardrooms can no longer rely on superficial, annual IT briefings that declare "our firewalls are up to date." Directors need a direct, unvarnished communication channel with an executive
 whose singular focus is security posture and resilience.
 
-## Governance Comparison
-
 | Governance Dimension          | Traditional IT / Bureaucratic Approach                          | Strategic C-Suite / Board CISO Approach                          |
 |-------------------------------|-----------------------------------------------------------------|------------------------------------------------------------------|
 | Regulatory & Legal Compliance | Reactive tick-the-box compliance exercises that treat regulation as a legal nuisance. | Proactive integration of privacy-by-design, matching  compliance frameworks directly to business growth. |
 | Capital Allocation & ROI      | Opaque capital expenditure requests for "security tools" without explicit risk-reduction calculations. | Quantified Risk Management (QRM) modeling, presenting security spend as a function of financial risk reduction. |
 | Crisis Leadership & Resilience| Technical firefighting during an incident with poor, uncoordinated corporate communication. | Enterprise-wide incident command structures linking legal, public relations, operations, and the Board. |
+
+: Governance Comparison
+
 
 ## 4. Driving the Secure Implementation of Disruptive Technologies
 

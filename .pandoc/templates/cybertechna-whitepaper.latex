@@ -53,10 +53,19 @@
 % --- 7. PROFESSIONAL TABLE STYLING ---
 \renewcommand{\arraystretch}{1.5} % Extra breathing room for executive reading
 
-% Use caption styling to create a clean, integrated title banner
+% Style longtable captions to act as an integrated corporate banner
 \usepackage{caption}
 \DeclareCaptionFormat{cybertable}{%
-  \colorbox{darkblue}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{\centering\color{white}\bfseries\large #3}}%
+  \parbox{\linewidth}{%
+    % 1. Primary Dark Blue Title Box
+    \colorbox{darkblue}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{\centering\color{white}\bfseries\large #3}}\par
+    \vspace{-1pt}% Snap the accent bar directly against the box above
+    % 2. Split Brand Accent Bar (Left 50% Blue, Right 50% Red)
+    \begin{tikzpicture}[x=1in, y=1in, line width=3pt]
+      \draw[cyberblue] (0,0) -- (0.5\linewidth,0);
+      \draw[cyberred] (0.5\linewidth,0) -- (\linewidth,0);
+    \end{tikzpicture}
+  }%
 }
 \captionsetup[longtable]{format=cybertable, labelformat=empty, skip=0pt, position=top}
 
@@ -66,16 +75,17 @@
     \color{charcoal}\small
     \oldlongtable
   }
-  % Maintain your beautiful alternating light gray zebra-striping layout
+  % Alternating light gray zebra-striping layout
   \rowcolors{1}{lightgray!40}{white}
 }
 
 \renewcommand{\heavyrulewidth}{1.5pt}
 \renewcommand{\lightrulewidth}{0.5pt}
-% --- 7. PROFESSIONAL TABLE STYLING --- (old)
+
+% % --- 7. PROFESSIONAL TABLE STYLING ---
 % \renewcommand{\arraystretch}{1.5} % Extra breathing room for executive reading
 %
-% % Style longtable captions to act as the title banner
+% % Use caption styling to create a clean, integrated title banner
 % \usepackage{caption}
 % \DeclareCaptionFormat{cybertable}{%
 %   \colorbox{darkblue}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{\centering\color{white}\bfseries\large #3}}%
@@ -88,7 +98,7 @@
 %     \color{charcoal}\small
 %     \oldlongtable
 %   }
-%   % Alternating light gray rows
+%   % Maintain your beautiful alternating light gray zebra-striping layout
 %   \rowcolors{1}{lightgray!40}{white}
 % }
 %
