@@ -1,18 +1,24 @@
 \documentclass[11pt, letterpaper]{article}
+
+% --- 1. CORE PACKAGES & LAYOUT ---
 \usepackage[margin=1in]{geometry}
 \usepackage{graphicx}
 \usepackage{fancyhdr}
-\usepackage{titlesec}
 \usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{calc}
+
+% --- 2. TABLES & GRAPHICS ---
 \usepackage{tabularx}
 \usepackage{booktabs}
-\usepackage{sectsty}
 \usepackage{longtable}
 \usepackage{array}
+\usepackage{colortbl} % Required for row coloring
 \usepackage{tikz}
 \usetikzlibrary{calc}
+\usepackage[most]{tcolorbox} % Handles advanced boxes & pull quotes cleanly
 
-% --- HEX COLOR CONFIGURATION ---
+% --- 3. HEX COLOR CONFIGURATION ---
 \usepackage{xcolor}
 \definecolor{cyberblue}{HTML}{1055CC}  
 \definecolor{cyberred}{HTML}{CC0100}   % Your brand red
@@ -22,18 +28,16 @@
 \definecolor{slate}{HTML}{010619}
 \definecolor{navyblue}{HTML}{172554}
 
-% --- GLOBAL FONTS & TYPOGRAPHY ---
+% --- 4. GLOBAL FONTS & TYPOGRAPHY ---
 \usepackage{fontspec}
 \setmainfont{Arial}[Scale=1.0, Ligatures=TeX]
 \setsansfont{Arial}[Scale=1.0]
 \usepackage{csquotes}
 
-% --- REMOVE STANDARD LATEX NUMBERING ---
+% --- 5. REMOVE STANDARD LATEX NUMBERING ---
 \setcounter{secnumdepth}{0} 
 
-% --- STYLING HEADERS (Forced Color Fix) ---
-\usepackage{titlesec}
-
+% --- 6. STYLING HEADERS ---
 \titleformat{\section}
   {\sffamily\Large\bfseries\color{cyberred}\filcenter}
   {}{0em}{}
@@ -44,34 +48,23 @@
   {}{0em}{}
 \titlespacing*{\subsection}{0pt}{2.5ex plus 0.5ex minus .2ex}{1.5ex plus .2ex}
 
-% --- PROFESSIONAL TABLE STYLING ---
+% --- 7. PROFESSIONAL TABLE STYLING ---
 \renewcommand{\arraystretch}{1.4} 
 
-% CLEAN NATIVE FIX: Stylizes the longtable right as the document starts
-% \AtBeginDocument{
-%   \let\oldlongtable\longtable
-%   \renewcommand{\longtable}{\color{charcoal}\small\oldlongtable}
-% }
-% \usepackage[most]{tcolorbox}
-\usepackage{colortbl} % Required for row coloring
-
+% Dynamic table color injections at runtime
 \AtBeginDocument{
   \let\oldlongtable\longtable
   \renewcommand{\longtable}{
     \color{charcoal}\small
     \oldlongtable
   }
-  % Colors the first row (headers) darkblue, text white
-  \rowcolors{1}{lightgray!50}{white} % Alternating rows
+  \rowcolors{1}{lightgray!50}{white} % Alternating row striping
 }
 
-% Optional: If you want to style table lines cleanly
 \renewcommand{\heavyrulewidth}{1.5pt}
 \renewcommand{\lightrulewidth}{0.5pt}
-    \tcbset{colborder right=cyberred}
-\usepackage[most]{tcolorbox}
 
-% Redefining Pandoc's quote environment safely without @ syntax errors
+% --- 8. PREMIUM PULL QUOTE STYLING ---
 \renewenvironment{quote}
   {\begin{tcolorbox}[
       enhanced,
@@ -82,9 +75,8 @@
       leftrule=4pt,                % Thick left border
       colborder=cyberblue,         % Left bar color (Blue)
       colback=lightgray!40,        % Subtle background tint
-      fontupper=\large\itshape\color{charcoal}, % Bigger, italicized text
+      fontupper=\large\itshape\color{charcoal}, % Bigger italicized text
       top=12pt, bottom=12pt, left=15pt, right=15pt,
-      % Native overlay to draw the red right bar perfectly on the right edge
       overlay={
         \draw[line width=4pt, cyberred] (frame.north east) -- (frame.south east);
       }
@@ -92,15 +84,12 @@
   }
   {\end{tcolorbox}}
 
-% --- PANDOC COMPATIBILITY FALLBACKS ---
+% --- 9. PANDOC COMPATIBILITY FALLBACKS ---
 \newcounter{none} 
-\usepackage{calc}
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\renewenvironment{quote}
-  {\begin{list}{}{\rightmargin=\leftmargin}\item\em\color{charcoal}}
-  {\end{list}}
 
+% --- 10. HEADER/FOOTER CONFIGURATION ---
 \pagestyle{fancy}
 \fancyhf{}
 \rhead{\small\color{gray}{$category$}}
@@ -108,11 +97,14 @@
 \cfoot{\thepage}
 \renewcommand{\headrulewidth}{0.5pt}
 
+
+% =========================================================================
+% DOCUMENT START
+% =========================================================================
 \begin{document}
 
 % --- Cover Page with Diagonal Gradient ---
 \begin{titlepage}
-    % FIXED: Uses standard top/bottom color syntax and rotates it 45 degrees for a clean diagonal blend
     \begin{tikzpicture}[remember picture, overlay]
         \shade[top color=slate, bottom color=navyblue, shading angle=45] 
             (current page.north west) rectangle (current page.south east);
@@ -182,6 +174,7 @@ Transitioning your organization from baseline IT compliance to true board-level 
 \vspace{0.5cm}
 {\small\bfseries\color{cyberblue} CORPORATE OFFICE}\par
 {\small\color{charcoal} 850-737-1706}\par
+
 % --- About Me / Author Bio Block ---
 \vspace{1.5cm} 
 \begin{tcolorbox}[
@@ -196,18 +189,16 @@ Transitioning your organization from baseline IT compliance to true board-level 
 ]
 \begin{minipage}[c]{0.25\textwidth}
     \centering
-    % Photo Placeholder Box (Will show an actual image once you provide 'headshot.jpg')
     \makeatletter
     \@ifundefined{includegraphics}{
-        \color{gray}\rule{2.8cm}{3.5cm} % Fallback gray box
+        \color{gray}\rule{2.8cm}{3.5cm}
     }{
-        % Try loading your photo; defaults to a clean bordered box if file isn't found yet
         \IfFileExists{img/headshot.jpg}{
             \includegraphics[width=2.8cm, height=3.5cm, keepaspectratio]{img/headshot.jpg}
         }{
             \begingroup
             \color{gray!50}\def\layer_box{\rule{2.8cm}{3.5cm}}
-            \label{\layer_box}\framebox(80,100){\small\color{charcoal}PHOTO}
+            \framebox(80,100){\small\color{charcoal}PHOTO}
             \endgroup
         }
     }
@@ -222,8 +213,10 @@ Transitioning your organization from baseline IT compliance to true board-level 
     }
 \end{minipage}
 \end{tcolorbox}
+
 \vspace{1cm}
 \vfill
 {\footnotesize\color{gray} \copyright\ 2026 Cybertechna LLC. All rights reserved. | Strategic Advisory \& Cyber Governance Services}
 
 \end{document}
+
