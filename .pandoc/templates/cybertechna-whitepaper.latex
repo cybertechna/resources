@@ -51,37 +51,31 @@
 \titlespacing*{\subsection}{0pt}{2.5ex plus 0.5ex minus .2ex}{1.5ex plus .2ex}
 
 % --- 7. PROFESSIONAL TABLE STYLING ---
-\renewcommand{\arraystretch}{1.5} % Extra breathing room for executive reading
+\renewcommand{\arraystretch}{1.5} % Executive line spacing padding
 
-% Style longtable captions to act as an integrated corporate banner
+% Minimalist, ultra-clean table title layout
 \usepackage{caption}
 \DeclareCaptionFormat{cybertable}{%
   \parbox{\linewidth}{%
-    % 1. Primary Dark Blue Title Box
-    \colorbox{darkblue}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{\centering\color{white}\bfseries\large #3}}\par
-    \vspace{-1pt}% Snap the accent bar directly against the box above
-    % 2. Split Brand Accent Bar (Left 50% Blue, Right 50% Red)
-    \begin{tikzpicture}[x=1in, y=1in, line width=3pt]
-      \draw[cyberblue] (0,0) -- (0.5\linewidth,0);
-      \draw[cyberred] (0.5\linewidth,0) -- (\linewidth,0);
-    \end{tikzpicture}
+    {\large\bfseries\color{darkblue} #3}\par
+    \vspace{4pt}
   }%
 }
-\captionsetup[longtable]{format=cybertable, labelformat=empty, skip=0pt, position=top}
+\captionsetup[longtable]{format=cybertable, labelformat=empty, skip=6pt, position=top}
 
+% Global hook to keep table internal body text professional and tight
 \AtBeginDocument{
   \let\oldlongtable\longtable
   \renewcommand{\longtable}{
     \color{charcoal}\small
     \oldlongtable
   }
-  % Alternating light gray zebra-striping layout
-  \rowcolors{1}{lightgray!40}{white}
+  % Sleek alternating zebra row backgrounds (Row 1 white, Row 2 tinted gray)
+  \rowcolors{1}{white}{lightgray!40}
 }
 
-\renewcommand{\heavyrulewidth}{1.5pt}
+\renewcommand{\heavyrulewidth}{1.2pt}
 \renewcommand{\lightrulewidth}{0.5pt}
-
 % % --- 7. PROFESSIONAL TABLE STYLING ---
 % \renewcommand{\arraystretch}{1.5} % Extra breathing room for executive reading
 %
