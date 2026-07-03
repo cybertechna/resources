@@ -9,15 +9,14 @@
 \usepackage{sectsty}
 \usepackage{longtable}
 \usepackage{array}
-\usepackage{etoolbox}
 \usepackage{tikz}
 \usetikzlibrary{calc}
 
 % --- HEX COLOR CONFIGURATION ---
 \usepackage{xcolor}
-\definecolor{cyberblue}{HTML}{003366}  
-\definecolor{cyberred}{HTML}{CC0000}   % Your brand red
-\definecolor{darkblue}{HTML}{002060}
+\definecolor{cyberblue}{HTML}{1055cc}  
+\definecolor{cyberred}{HTML}{CC0100}   % Your brand red
+\definecolor{darkblue}{HTML}{061f4f}
 \definecolor{charcoal}{HTML}{333333}
 \definecolor{lightgray}{HTML}{F4F6F8}
 
@@ -44,13 +43,11 @@
 % --- PROFESSIONAL TABLE STYLING ---
 \renewcommand{\arraystretch}{1.4} 
 
-% FIXED: Wrapped with makeatletter/makeatother so LaTeX understands the @ character
-\makeatletter
-\AtStartOfDocument{%
+% CLEAN NATIVE FIX: Stylizes the longtable right as the document starts
+\AtBeginDocument{
   \let\oldlongtable\longtable
   \renewcommand{\longtable}{\color{charcoal}\small\oldlongtable}
 }
-\makeatother
 
 % --- PANDOC COMPATIBILITY FALLBACKS ---
 \newcounter{none} 
