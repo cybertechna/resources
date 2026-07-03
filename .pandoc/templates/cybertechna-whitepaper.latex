@@ -1,7 +1,6 @@
 \documentclass[11pt, letterpaper]{article}
 \usepackage[margin=1in]{geometry}
 \usepackage{graphicx}
-\usepackage{xcolor}
 \usepackage{fancyhdr}
 \usepackage{titlesec}
 \usepackage{enumitem}
@@ -10,43 +9,60 @@
 \usepackage{sectsty}
 \usepackage{longtable}
 \usepackage{array}
+\usepackage{etoolbox}
+\usepackage{tikz}
+\usetikzlibrary{calc}
 
-% --- CRITICAL FONT FIXES FOR XELATEX ---
+% --- HEX COLOR CONFIGURATION ---
+\usepackage{xcolor}
+\definecolor{cyberblue}{HTML}{003366}  
+\definecolor{cyberred}{HTML}{CC0000}   % Your brand red
+\definecolor{darkblue}{HTML}{002060}
+\definecolor{charcoal}{HTML}{333333}
+\definecolor{lightgray}{HTML}{F4F6F8}
+
+% --- GLOBAL FONTS & TYPOGRAPHY ---
 \usepackage{fontspec}
-\setmainfont{Inter}[
-  Scale=0.95, % Inter runs slightly large, 0.95 scales it beautifully to 11pt
-  Ligatures=TeX,
-%  BoldFont={* Bold},
-%  ItalicFont={* Italic}
-]
-\setsansfont{Inter}[Scale=0.95]
-
+% Using standard Sans-serif (Block Lettering) globally for an executive look
+\setmainfont{Arial}[Scale=1.0, Ligatures=TeX]
+\setsansfont{Arial}[Scale=1.0]
 \usepackage{csquotes}
 
-% --- PANDOC COMPATIBILITY RECS ---
+% --- REMOVE STANDARD LATEX NUMBERING ---
+% This completely kills the "1", "1.1", "1.2" auto-numbering globally
+\setcounter{secnumdepth}{0} 
+
+% --- STYLING HEADERS ---
+% Level 1 Headers (#): Centered, Cyberred, Bold Sans-Serif Block Lettering
+\titleformat{\section}
+  {\color{cyberred}\sffamily\Large\bfseries\filcenter}
+  {}{0em}{}
+\titlespacing*{\section}{0pt}{3.5ex plus 1ex minus .2ex}{2ex plus .2ex}
+
+% Level 2 Headers (##): Left-aligned, Cyberred, Bold Sans-Serif Block Lettering
+\titleformat{\subsection}
+  {\color{cyberred}\sffamily\large\bfseries}
+  {}{0em}{}
+\titlespacing*{\subsection}{0pt}{2.5ex plus 0.5ex minus .2ex}{1.5ex plus .2ex}
+
+% --- PROFESSIONAL TABLE STYLING ---
+% Adds breathing room to table cells natively
+\renewcommand{\arraystretch}{1.4} 
+% Subtle styling configurations for Pandoc's longtable conversions
+\at@start@of@document{%
+  \let\oldlongtable\longtable
+  \renewcommand{\longtable}{\color{charcoal}\small\oldlongtable}
+}
+
+% --- PANDOC COMPATIBILITY FALLBACKS ---
 \newcounter{none} 
 \usepackage{calc}
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-
-% Handle pandoc blockquote styling
 \renewenvironment{quote}
-  {\begin{list}{}{\rightmargin=\leftmargin}\item\em}
+  {\begin{list}{}{\rightmargin=\leftmargin}\item\em\color{charcoal}}
   {\end{list}}
-% --- END PANDOC BLOCK ---
 
-% Color scheme - Cybertechna branding
-\definecolor{cyberblue}{RGB}{0, 51, 102}
-\definecolor{cyberred}{RGB}{204, 0, 0}
-\definecolor{darkblue}{RGB}{0, 32, 96}
-\definecolor{charcoal}{RGB}{51, 51, 51}
-
-% Document Global Styling
-\makeatletter
-\def\@author{\color{charcoal}}
-\makeatother
-
-% Header/Footer Configuration
 \pagestyle{fancy}
 \fancyhf{}
 \rhead{\small\color{gray}{$category$}}
@@ -54,39 +70,40 @@
 \cfoot{\thepage}
 \renewcommand{\headrulewidth}{0.5pt}
 
-% Section and Title styling
-\titleformat{\section}{\Large\bfseries\color{cyberblue}}{}{0em}{}
-\titleformat{\subsection}{\large\bfseries\color{cyberblue}}{}{0em}{}
-\titlespacing*{\section}{0pt}{2.5ex plus 1ex minus .2ex}{1.5ex plus .2ex}
-\titlespacing*{\subsection}{0pt}{2ex plus 0.5ex minus .2ex}{1.2ex plus .2ex}
-
 \begin{document}
 
-% --- Cover Page ---
+% --- Cover Page with Diagonal Gradient ---
 \begin{titlepage}
+    \begin{tikzpicture}[remember picture, overlay]
+        \shade[top left=cyberblue, bottom right=darkblue] 
+            (current page.north west) rectangle (current page.south east);
+    \end{tikzpicture}
+    
     \centering
     \vspace*{1.5cm}
     
-    % If the image doesn't load or missing, use placeholder styling
     \makeatletter
     \@ifundefined{includegraphics}{}{%
       \includegraphics[width=0.55\textwidth]{img/cybertechna_logo_banner_tagline.png}\par
     }
     \makeatother
     
-    \vspace{2cm}
-    \colorbox{darkblue}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{\centering\vspace{6pt}\color{white}\normalsize\bfseries {$header$}\vspace{6pt}}}
-    
     \vspace{2.5cm}
-    {\Huge\bfseries\color{cyberblue} {$title$}\par}
+    {\color{white}\normalsize\bfseries {$header$}\par}
+    
+    \vspace{1.5cm}
+    {\color{white}\makebox[\textwidth]{\rule{0.4\textwidth}{0.5pt}}\par}
+    \vspace{1.5cm}
+    
+    {\Huge\bfseries\color{white} {$title$}\par}
     
     \vspace{0.8cm}
-    {\large\itshape\color{charcoal} {$subtitle$}\par}
+    {\large\itshape\color{white!80!blue} {$subtitle$}\par}
     
     \vfill
     
     \begin{flushleft}
-    \small\color{charcoal}
+    \small\color{white!90}
     \textbf{Prepared by:} {$preparedby$} \\
     \textbf{Published:} {$date$} \\
     \textbf{Target Audience:} {$audience$}
@@ -131,4 +148,3 @@ Transitioning your organization from baseline IT compliance to true board-level 
 {\footnotesize\color{gray} \copyright\ 2026 Cybertechna LLC. All rights reserved. | Strategic Advisory \& Cyber Governance Services}
 
 \end{document}
-
