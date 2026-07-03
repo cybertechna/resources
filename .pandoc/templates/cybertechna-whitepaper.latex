@@ -88,6 +88,8 @@
       top=14pt, bottom=14pt, left=16pt, right=16pt,
       overlay={
         \draw[line width=4pt, cyberred] (frame.north east) -- (frame.south east);
+        \draw[line width=4pt, cyberblue] (fram.north west) -- (frame.south
+        west); 
       }
     ]
   }
@@ -171,7 +173,7 @@ $body$
 % --- Standalone Back-Page Styling ---
 \newpage
 \thispagestyle{empty}
-\vspace*{3cm}
+\vspace*{2cm}
 \centering
 
 \makeatletter
