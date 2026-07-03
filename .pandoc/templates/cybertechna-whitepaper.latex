@@ -101,21 +101,21 @@
   }
   {\end{tcolorbox}}
 
-% --- 9. PANDOC COMPATIBILITY FALLBACKS ---
-
+% --- 9. PANDOC COMPATIBILITY FALLBACKS & LIST STYLING ---
 \newcounter{none} 
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
-% Professional List Layout (Resets margins, adds padding, styles bullets)
+% Safe, high-visibility list layout configuration
 \setlist[itemize]{
-  leftmargin=1.5em,        % Flushes the list container completely to the left margin
-  align=left,
-  labelsep=8pt,         % Adds professional breathing room between the bullet and the text
-  topsep=6pt,            % Padding above the list block
-  itemsep=8pt,           % Extra whitespace between separate bullet items
-  label={\color{cyberblue}\large\textbullet} % Custom bold, cyberblue bullet points
+  leftmargin=1.5em,        % Safe spacing indentation to bring bullets onto the canvas
+  labelsep=8pt,            % Precise padding between bullet and text
+  topsep=6pt,              
+  itemsep=8pt,             
+  label={\color{cyberblue}\large\textbullet} % Vibrant brand bullet points
 }
+
+\newcommand{\bullethead}[1]{{\bfseries\color{cyberblue}#1}}
 
 % --- 10. HEADER/FOOTER CONFIGURATION ---
 \pagestyle{fancy}

@@ -40,16 +40,16 @@ that smaller scale offers a cloak of invisibility. Data continuously debunks thi
 >"Boardrooms can no longer rely on superficial, annual IT briefings that declare
 >"our firewalls are up to date."
 
-* **The Supply Chain Target.** Large enterprises have significantly hardened their perimeters.
+* {The Supply Chain Target.}{.cyberblue} Large enterprises have significantly hardened their perimeters.
 Consequently, bad actors exploit smaller vendors as downstream attack corridors to penetrate
 the primary target's network.
 
-* **SME Vulnerability Exposure.** While a Fortune 500 company can absorb the fiscal shock of a
+* {SME Vulnerability Exposure.}{.cyberblue} While a Fortune 500 company can absorb the fiscal shock of a
 multi-million dollar ransomware extortion, a mid-market organization faces an existential
 threat. Statistically, critical data lockouts or operational pauses of over 72 hours drive a
 massive percentage of small businesses into restructuring or insolvency within 12 months.
 
-* **The Virtual or Fractional Alternative.** Smaller organizations do not necessarily require a
+* {The Virtual or Fractional Alternative.}{.cyberblue} Smaller organizations do not necessarily require a
 full-scale corporate security apparatus, but they absolutely require the strategic mindset of a
 CISO. Utilizing a fractional or Virtual CISO (vCISO) grants these firms high-level oversight to sit at the leadership table, driving security strategy without a prohibitive overhead cost.
 
