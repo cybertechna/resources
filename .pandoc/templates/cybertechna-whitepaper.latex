@@ -72,11 +72,11 @@
       frame hidden,
       sharp corners,
       boxrule=0pt,
-      leftrule=4pt,                % Thick left border
+      leftrule=6pt,                % Thick left border
       colframe=cyberblue,         % Left bar color (Blue)
       colback=lightgray!40,        % Subtle background tint
       fontupper=\large\itshape\color{charcoal}, % Bigger italicized text
-      top=12pt, bottom=12pt, left=15pt, right=15pt,
+      top=14pt, bottom=14pt, left=16pt, right=16pt,
       overlay={
         \draw[line width=4pt, cyberred] (frame.north east) -- (frame.south east);
       }
@@ -113,12 +113,26 @@
     \centering
     \vspace*{1.5cm}
     
+    % --- Logo with Clean White Background Card ---
     \makeatletter
     \@ifundefined{includegraphics}{}{%
-      \includegraphics[width=0.55\textwidth]{img/cybertechna_logo_banner_tagline.png}\par
+      \begin{tcolorbox}[
+        enhanced,
+        colback=white,
+        colframe=white,
+        sharp corners,
+        boxrule=0pt,
+        width=0.6\textwidth,
+        halign=center,
+        valign=center,
+        top=10pt, bottom=10pt, left=10pt, right=10pt,
+        shadow={0mm}{-1mm}{0.5mm}{black!20} % Subtle professional drop shadow
+      ]
+        \includegraphics[width=\linewidth]{img/cybertechna_logo_banner_tagline.png}
+      \end{tcolorbox}\par
     }
     \makeatother
-    
+
     \vspace{2.5cm}
     {\color{white}\normalsize\bfseries {$header$}\par}
     
