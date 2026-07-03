@@ -73,7 +73,7 @@
       sharp corners,
       boxrule=0pt,
       leftrule=4pt,                % Thick left border
-      colborder=cyberblue,         % Left bar color (Blue)
+      colframe=cyberblue,         % Left bar color (Blue)
       colback=lightgray!40,        % Subtle background tint
       fontupper=\large\itshape\color{charcoal}, % Bigger italicized text
       top=12pt, bottom=12pt, left=15pt, right=15pt,
