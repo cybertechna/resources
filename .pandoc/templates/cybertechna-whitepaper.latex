@@ -33,7 +33,7 @@
 % --- 4. GLOBAL FONTS & TYPOGRAPHY ---
 \usepackage[sfdefault, semibold]{inter}
 \usepackage{microtype}
-\setstretch{1.15}                    % Your original line spacing
+\setstretch{1.25}                    % Your original line spacing
 \renewcommand{\normalsize}{\fontsize{12pt}{14.4pt}\selectfont}
 \normalsize
 % --- 5. HYPERLINKS ---
