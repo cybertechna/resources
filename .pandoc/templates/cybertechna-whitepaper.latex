@@ -23,36 +23,34 @@
 
 % --- GLOBAL FONTS & TYPOGRAPHY ---
 \usepackage{fontspec}
-% Using standard Sans-serif (Block Lettering) globally for an executive look
 \setmainfont{Arial}[Scale=1.0, Ligatures=TeX]
 \setsansfont{Arial}[Scale=1.0]
 \usepackage{csquotes}
 
 % --- REMOVE STANDARD LATEX NUMBERING ---
-% This completely kills the "1", "1.1", "1.2" auto-numbering globally
 \setcounter{secnumdepth}{0} 
 
 % --- STYLING HEADERS ---
-% Level 1 Headers (#): Centered, Cyberred, Bold Sans-Serif Block Lettering
 \titleformat{\section}
   {\color{cyberred}\sffamily\Large\bfseries\filcenter}
   {}{0em}{}
 \titlespacing*{\section}{0pt}{3.5ex plus 1ex minus .2ex}{2ex plus .2ex}
 
-% Level 2 Headers (##): Left-aligned, Cyberred, Bold Sans-Serif Block Lettering
 \titleformat{\subsection}
   {\color{cyberred}\sffamily\large\bfseries}
   {}{0em}{}
 \titlespacing*{\subsection}{0pt}{2.5ex plus 0.5ex minus .2ex}{1.5ex plus .2ex}
 
 % --- PROFESSIONAL TABLE STYLING ---
-% Adds breathing room to table cells natively
 \renewcommand{\arraystretch}{1.4} 
-% Subtle styling configurations for Pandoc's longtable conversions
+
+% FIXED: Wrapped with makeatletter/makeatother so LaTeX understands the @ character
+\makeatletter
 \at@start@of@document{%
   \let\oldlongtable\longtable
   \renewcommand{\longtable}{\color{charcoal}\small\oldlongtable}
 }
+\makeatother
 
 % --- PANDOC COMPATIBILITY FALLBACKS ---
 \newcounter{none} 
