@@ -15,30 +15,33 @@
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{array}
-\usepackage{colortbl} % Required for row coloring
+\usepackage{colortbl}
 \usepackage{tikz}
 \usetikzlibrary{calc}
-\usepackage[most]{tcolorbox} % Handles advanced boxes & pull quotes cleanly
+\usepackage[most]{tcolorbox}
 
 % --- 3. HEX COLOR CONFIGURATION ---
 \usepackage{xcolor}
-\definecolor{cyberblue}{HTML}{1055CC}  
-\definecolor{cyberred}{HTML}{CC0100}   % Your brand red
+\definecolor{cyberblue}{HTML}{1055CC}
+\definecolor{cyberred}{HTML}{CC0100}
 \definecolor{darkblue}{HTML}{061f4f}
 \definecolor{charcoal}{HTML}{333333}
 \definecolor{lightgray}{HTML}{F4F6F8}
 \definecolor{slate}{HTML}{010619}
 \definecolor{navyblue}{HTML}{172554}
 
-% --- 4. GLOBAL FONTS & TYPOGRAPHY ---
-\usepackage{fontspec}
-\setmainfont{Arial}[Scale=1.05, Ligatures=TeX]
-\setsansfont{Arial}[Scale=1.05]
-\usepackage{csquotes}
+% --- 4. GLOBAL FONTS & TYPOGRAPHY (UPDATED WITH INTER) ---
+\usepackage[sfdefault, semibold]{inter}  % semibold looks excellent for professional docs
+% Alternatives: extrabold, heavy, medium, etc.
+
+\usepackage{microtype}   % Improves spacing and readability with Inter
+
+% Optional fine-tuning
+\renewcommand{\familydefault}{\sfdefault}
 \setstretch{1.15}
 
 % --- 5. REMOVE STANDARD LATEX NUMBERING ---
-\setcounter{secnumdepth}{0} 
+\setcounter{secnumdepth}{0}
 
 % --- 6. STYLING HEADERS ---
 \titleformat{\section}
@@ -50,13 +53,13 @@
   {\sffamily\large\bfseries\color{charcoal}}
   {}{0em}{}
 \titlespacing*{\subsection}{0pt}{2.5ex plus 0.5ex minus .2ex}{1.5ex plus .2ex}
-% --- LIST & TERM STYLING ---
-% A custom wrapper you can use if you want explicit control, or let markdown handle it
-\newcommand{\bullethead}[1]{{\bfseries\color{cyberblue}#1}}
-% --- 7. PROFESSIONAL TABLE STYLING ---
-\renewcommand{\arraystretch}{1.5} % Executive line spacing padding
 
-% Minimalist, ultra-clean table title layout
+% --- LIST & TERM STYLING ---
+\newcommand{\bullethead}[1]{{\bfseries\color{cyberblue}#1}}
+
+% --- 7. PROFESSIONAL TABLE STYLING ---
+\renewcommand{\arraystretch}{1.5}
+
 \usepackage{caption}
 \DeclareCaptionFormat{cybertable}{%
   \parbox{\linewidth}{%
@@ -66,17 +69,14 @@
 }
 \captionsetup[longtable]{format=cybertable, labelformat=empty, skip=6pt, position=top}
 
-% Global hook to keep table internal body text professional and tight
 \AtBeginDocument{
   \let\oldlongtable\longtable
   \renewcommand{\longtable}{
     \color{charcoal}\small
     \oldlongtable
   }
-  % Sleek alternating zebra row backgrounds (Row 1 white, Row 2 tinted gray)
   \rowcolors{1}{white}{lightgray!40}
 }
-
 \renewcommand{\heavyrulewidth}{1.2pt}
 \renewcommand{\lightrulewidth}{0.5pt}
 
@@ -88,43 +88,39 @@
       frame hidden,
       sharp corners,
       boxrule=0pt,
-      leftrule=6pt,                % Thick left border
-      colback=lightgray!40,        % Subtle background tint
-      fontupper=\large\itshape\color{charcoal}, % Bigger italicized text
+      leftrule=6pt,
+      colback=lightgray!40,
+      fontupper=\large\itshape\color{charcoal},
       top=14pt, bottom=14pt, left=16pt, right=16pt,
       overlay={
         \draw[line width=4pt, cyberred] (frame.north east) -- (frame.south east);
-        \draw[line width=4pt, cyberblue] (frame.north west) -- (frame.south
-        west); 
+        \draw[line width=4pt, cyberblue] (frame.north west) -- (frame.south west);
       }
     ]
   }
   {\end{tcolorbox}}
 
 % --- 9. PANDOC COMPATIBILITY FALLBACKS & LIST STYLING ---
-\newcounter{none} 
+\newcounter{none}
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
-% Safe, high-visibility list layout configuration
 \setlist[itemize]{
-  leftmargin=1.5em,        % Safe spacing indentation to bring bullets onto the canvas
-  labelsep=8pt,            % Precise padding between bullet and text
-  topsep=6pt,              
-  itemsep=8pt,             
-  label={\color{cyberblue}\large\textbullet} % Vibrant brand bullet points
+  leftmargin=1.5em,
+  labelsep=8pt,
+  topsep=6pt,
+  itemsep=8pt,
+  label={\color{cyberblue}\large\textbullet}
 }
-
 \renewcommand{\bullethead}[1]{{\bfseries\color{cyberblue}#1}}
 
 % --- 10. HEADER/FOOTER CONFIGURATION ---
 \pagestyle{fancy}
 \fancyhf{}
 \rhead{\small\color{gray}{$category$}}
-\lfoot{\small\color{gray}{$series$}}  
+\lfoot{\small\color{gray}{$series$}}
 \cfoot{\thepage}
 \renewcommand{\headrulewidth}{0.5pt}
-
 
 % =========================================================================
 % DOCUMENT START
@@ -134,26 +130,25 @@
 % --- Cover Page with Diagonal Gradient ---
 \begin{titlepage}
     \begin{tikzpicture}[remember picture, overlay]
-        \shade[top color=slate, bottom color=navyblue, shading angle=45] 
+        \shade[top color=slate, bottom color=navyblue, shading angle=45]
             (current page.north west) rectangle (current page.south east);
     \end{tikzpicture}
-    
+   
     \centering
-        %\vspace{1.5cm}
     \vspace{1.5cm}
     {\color{white}\normalsize\bfseries {$header$}\par}
-    
+   
     \vspace{0.5cm}
     {\color{white}\makebox[\textwidth]{\rule{0.4\textwidth}{0.5pt}}\par}
     \vspace{1.5cm}
-    
+   
     {\Huge\bfseries\color{white} {$title$}\par}
-    
+   
     \vspace{0.5cm}
     {\large\itshape\color{white!80!blue} {$subtitle$}\par}
-    
+   
     \vfill
-        % --- Logo with Clean White Background Card ---
+    % --- Logo ---
     \makeatletter
     \@ifundefined{includegraphics}{}{%
       \begin{tcolorbox}[
@@ -166,12 +161,12 @@
         halign=center,
         valign=center,
         top=10pt, bottom=10pt, left=10pt, right=10pt,
-        shadow={0mm}{-1mm}{0.5mm}{black!20} % Subtle professional drop shadow
+        shadow={0mm}{-1mm}{0.5mm}{black!20}
       ]
         \includegraphics[width=\linewidth]{img/cybertechna_logo_banner_tagline.png}
       \end{tcolorbox}\par
     }
-    \makeatletter
+    \makeatother
     \vspace{1cm}
     \begin{flushleft}
     \small\color{white!90}
@@ -192,39 +187,35 @@ $body$
 \thispagestyle{empty}
 \vspace*{1cm}
 \centering
-
 \makeatletter
 \@ifundefined{includegraphics}{}{%
   \includegraphics[width=0.4\textwidth]{img/cybertechna_logo_banner_tagline.png}\par
 \vspace{1.0cm}
 }
 \makeatother
-
 {\Large\bfseries\color{cyberblue} Secure Your Executive Horizon\par}
 \vspace{0.5cm}
 \begin{minipage}{0.8\textwidth}
 \centering\color{charcoal}
 Transitioning your organization from baseline IT compliance to true board-level cyber resilience requires proven, executive-level technical foresight. Whether establishing an internal CISO office or deploying a flexible, elite fractional VCISO structure, Cybertechna LLC provides the governance blueprint your leadership needs.
 \end{minipage}
-
 \vspace{1.5cm}
 {\small\bfseries\color{cyberblue} DIRECT INQUIRIES}\par
 {\small\color{charcoal} info@cybertechna.com}\par
-
 \vspace{0.5cm}
 {\small\bfseries\color{cyberblue} CORPORATE OFFICE}\par
 {\small\color{charcoal} 850-737-1706}\par
 
 % --- About Me / Author Bio Block ---
-\vspace{1.5cm} 
+\vspace{1.5cm}
 \begin{tcolorbox}[
     enhanced,
     frame hidden,
     sharp corners,
     boxrule=0pt,
-    leftrule=4pt,         % Left border only
-    colframe=cyberred,    % Brand red bar
-    colback=lightgray!30,  % Subtle backing
+    leftrule=4pt,
+    colframe=cyberred,
+    colback=lightgray!30,
     left=15pt, right=15pt, top=15pt, bottom=15pt
 ]
 \begin{minipage}[c]{0.25\textwidth}
@@ -253,7 +244,6 @@ Transitioning your organization from baseline IT compliance to true board-level 
     }
 \end{minipage}
 \end{tcolorbox}
-
 \vspace{1cm}
 \vfill
 {\footnotesize\color{gray} \copyright\ 2026 Cybertechna LLC. All rights reserved. | Strategic Advisory \& Cyber Governance Services}
