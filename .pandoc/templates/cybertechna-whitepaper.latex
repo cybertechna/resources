@@ -69,8 +69,9 @@
 
 % --- Cover Page with Diagonal Gradient ---
 \begin{titlepage}
+    % FIXED: Uses standard top/bottom color syntax and rotates it 45 degrees for a clean diagonal blend
     \begin{tikzpicture}[remember picture, overlay]
-        \shade[top left=cyberblue, bottom right=darkblue] 
+        \shade[top color=cyberblue, bottom color=darkblue, shading angle=45] 
             (current page.north west) rectangle (current page.south east);
     \end{tikzpicture}
     
