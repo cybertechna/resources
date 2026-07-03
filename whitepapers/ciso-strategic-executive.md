@@ -12,8 +12,8 @@ header: "STRATEGIC CORPORATE GOVERNANCE"
 
 # Output Control
 output-file: "../PDFs/cybertechna_strategic_ciso_whitepaper.pdf"
-template: "../.pandoc/templates/whitepaper.pdf"
-pdf-engine: "lualatex"
+template: "../.pandoc/templates/whitepaper.latex"
+pdf-engine: lualatex
 
 # Other issues
 toc: true
