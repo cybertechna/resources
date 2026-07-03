@@ -109,7 +109,8 @@
 
 % Professional List Layout (Resets margins, adds padding, styles bullets)
 \setlist[itemize]{
-  leftmargin=0pt,        % Flushes the list container completely to the left margin
+  leftmargin=*,        % Flushes the list container completely to the left margin
+  align=left,
   itemindent=0pt,        % Prevents weird internal paragraph staggering
   labelsep=10pt,         % Adds professional breathing room between the bullet and the text
   topsep=6pt,            % Padding above the list block
