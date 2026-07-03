@@ -8,6 +8,7 @@
 \usepackage{titlesec}
 \usepackage{calc}
 \usepackage{setspace}
+\usepackage{enumitem}
 
 % --- 2. TABLES & GRAPHICS ---
 \usepackage{tabularx}
@@ -49,7 +50,9 @@
   {\sffamily\large\bfseries\color{charcoal}}
   {}{0em}{}
 \titlespacing*{\subsection}{0pt}{2.5ex plus 0.5ex minus .2ex}{1.5ex plus .2ex}
-
+% --- LIST & TERM STYLING ---
+% A custom wrapper you can use if you want explicit control, or let markdown handle it
+\newcommand{\bullethead}[1]{{\bfseries\color{cyberblue}#1}}
 % --- 7. PROFESSIONAL TABLE STYLING ---
 \renewcommand{\arraystretch}{1.5} % Executive line spacing padding
 
