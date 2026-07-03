@@ -41,19 +41,19 @@
 
 % --- 6. STYLING HEADERS ---
 \titleformat{\section}
-  {\sffamily\Large\bfseries\color{cyberred}\filcenter}
+  {\sffamily\Large\bfseries\color{charcoal}\filcenter}
   {}{0em}{}
 \titlespacing*{\section}{0pt}{3.5ex plus 1ex minus .2ex}{2ex plus .2ex}
 
 \titleformat{\subsection}
-  {\sffamily\large\bfseries\color{cyberred}}
+  {\sffamily\large\bfseries\color{charcoal}}
   {}{0em}{}
 \titlespacing*{\subsection}{0pt}{2.5ex plus 0.5ex minus .2ex}{1.5ex plus .2ex}
 
 % --- 7. PROFESSIONAL TABLE STYLING ---
 \renewcommand{\arraystretch}{1.5} % Extra breathing room for executive reading
 
-% Style longtable captions to act as the title banner
+% Use caption styling to create a clean, integrated title banner
 \usepackage{caption}
 \DeclareCaptionFormat{cybertable}{%
   \colorbox{darkblue}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{\centering\color{white}\bfseries\large #3}}%
@@ -66,12 +66,34 @@
     \color{charcoal}\small
     \oldlongtable
   }
-  % Alternating light gray rows
+  % Maintain your beautiful alternating light gray zebra-striping layout
   \rowcolors{1}{lightgray!40}{white}
 }
 
 \renewcommand{\heavyrulewidth}{1.5pt}
 \renewcommand{\lightrulewidth}{0.5pt}
+% --- 7. PROFESSIONAL TABLE STYLING --- (old)
+% \renewcommand{\arraystretch}{1.5} % Extra breathing room for executive reading
+%
+% % Style longtable captions to act as the title banner
+% \usepackage{caption}
+% \DeclareCaptionFormat{cybertable}{%
+%   \colorbox{darkblue}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{\centering\color{white}\bfseries\large #3}}%
+% }
+% \captionsetup[longtable]{format=cybertable, labelformat=empty, skip=0pt, position=top}
+%
+% \AtBeginDocument{
+%   \let\oldlongtable\longtable
+%   \renewcommand{\longtable}{
+%     \color{charcoal}\small
+%     \oldlongtable
+%   }
+%   % Alternating light gray rows
+%   \rowcolors{1}{lightgray!40}{white}
+% }
+%
+% \renewcommand{\heavyrulewidth}{1.5pt}
+% \renewcommand{\lightrulewidth}{0.5pt}
 
 % --- 8. PREMIUM PULL QUOTE STYLING ---
 \renewenvironment{quote}
