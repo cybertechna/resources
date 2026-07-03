@@ -33,12 +33,14 @@
 % --- 4. GLOBAL FONTS & TYPOGRAPHY ---
 \usepackage[sfdefault, semibold]{inter}
 \usepackage{microtype}
-
+\setstretch{1.15}                    % Your original line spacing
+\renewcommand{\normalsize}{\fontsize{12pt}{14.4pt}\selectfont}
+\normalsize
 % --- 5. HYPERLINKS ---
 \usepackage{hyperref}
 \hypersetup{
     colorlinks=true,
-    linkcolor=cyberblue,
+    linkcolor=charcoal,
     urlcolor=cyberblue,
     citecolor=cyberblue,
     filecolor=cyberblue,
@@ -89,7 +91,8 @@
 }
 \renewcommand{\heavyrulewidth}{1.2pt}
 \renewcommand{\lightrulewidth}{0.5pt}
-
+\setlength{\LTpre}{0pt}
+\setlength{\LTpost}{0pt}
 % --- 9. PREMIUM PULL QUOTE STYLING ---
 \renewenvironment{quote}
   {\begin{tcolorbox}[
