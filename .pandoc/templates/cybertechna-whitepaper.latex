@@ -147,7 +147,7 @@
     \vspace{0.5cm}
     {\large\itshape\color{white!80!blue} {$subtitle$}\par}
    
-    \vfill
+    \vspace{2cm}
     % --- Logo ---
     \makeatletter
     \@ifundefined{includegraphics}{}{%
@@ -167,7 +167,7 @@
       \end{tcolorbox}\par
     }
     \makeatother
-    \vspace{1cm}
+    \vspace{2cm}
     \begin{flushleft}
     \small\color{white!90}
     \textbf{Prepared by:} {$preparedby$} \\
@@ -193,17 +193,17 @@ $body$
 \vspace{1.0cm}
 }
 \makeatother
-{\Large\bfseries\color{cyberblue} Secure Your Executive Horizon\par}
+{\Large\bfseries\color{cyberred} Secure Your Executive Horizon\par}
 \vspace{0.5cm}
 \begin{minipage}{0.8\textwidth}
 \centering\color{charcoal}
 Transitioning your organization from baseline IT compliance to true board-level cyber resilience requires proven, executive-level technical foresight. Whether establishing an internal CISO office or deploying a flexible, elite fractional VCISO structure, Cybertechna LLC provides the governance blueprint your leadership needs.
 \end{minipage}
 \vspace{1.5cm}
-{\small\bfseries\color{cyberblue} DIRECT INQUIRIES}\par
+{\small\bfseries\color{cyberred} DIRECT INQUIRIES}\par
 {\small\color{charcoal} info@cybertechna.com}\par
 \vspace{0.5cm}
-{\small\bfseries\color{cyberblue} CORPORATE OFFICE}\par
+{\small\bfseries\color{cyberred} CORPORATE OFFICE}\par
 {\small\color{charcoal} 850-737-1706}\par
 
 % --- About Me / Author Bio Block ---
@@ -225,7 +225,8 @@ Transitioning your organization from baseline IT compliance to true board-level 
         \color{gray}\rule{2.8cm}{3.5cm}
     }{
         \IfFileExists{img/headshot.jpg}{
-            \includegraphics[width=2.8cm, height=3.5cm, keepaspectratio]{img/headshot.jpg}
+            \includegraphics[width=2.8cm, height=3.5cm,
+            keepaspectratio]{img/kevin.png}
         }{
             \begingroup
             \color{gray!50}\def\layer_box{\rule{2.8cm}{3.5cm}}
