@@ -41,9 +41,9 @@
 \hypersetup{
     colorlinks=true,
     linkcolor=charcoal,
-    urlcolor=cyberblue,
-    citecolor=cyberblue,
-    filecolor=cyberblue,
+    urlcolor=charcoal,
+    citecolor=charcoal,
+    filecolor=charcoal,
     pdfborder={0 0 0},
     breaklinks=true
 }
