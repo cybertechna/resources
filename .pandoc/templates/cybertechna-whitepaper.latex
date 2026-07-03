@@ -1,4 +1,4 @@
-\documentclass[11pt, letterpaper]{article}
+\documentclass[12pt, letterpaper]{article}
 
 % --- 1. CORE PACKAGES & LAYOUT ---
 \usepackage[margin=1in]{geometry}
@@ -120,28 +120,7 @@
     \end{tikzpicture}
     
     \centering
-    \vspace*{1.5cm}
-    
-    % --- Logo with Clean White Background Card ---
-    \makeatletter
-    \@ifundefined{includegraphics}{}{%
-      \begin{tcolorbox}[
-        enhanced,
-        colback=white,
-        colframe=white,
-        sharp corners,
-        boxrule=0pt,
-        width=0.6\textwidth,
-        halign=center,
-        valign=center,
-        top=10pt, bottom=10pt, left=10pt, right=10pt,
-        shadow={0mm}{-1mm}{0.5mm}{black!20} % Subtle professional drop shadow
-      ]
-        \includegraphics[width=\linewidth]{img/cybertechna_logo_banner_tagline.png}
-      \end{tcolorbox}\par
-    }
-    \makeatother
-
+        %\vspace{1.5cm}
     \vspace{2.5cm}
     {\color{white}\normalsize\bfseries {$header$}\par}
     
@@ -162,6 +141,25 @@
     \textbf{Published:} {$date$} \\
     \textbf{Target Audience:} {$audience$}
     \end{flushleft}
+        % --- Logo with Clean White Background Card ---
+    \makeatletter
+    \@ifundefined{includegraphics}{}{%
+      \begin{tcolorbox}[
+        enhanced,
+        colback=white,
+        colframe=white,
+        sharp corners,
+        boxrule=0pt,
+        width=0.6\textwidth,
+        halign=center,
+        valign=center,
+        top=10pt, bottom=10pt, left=10pt, right=10pt,
+        shadow={0mm}{-1mm}{0.5mm}{black!20} % Subtle professional drop shadow
+      ]
+        \includegraphics[width=\linewidth]{img/cybertechna_logo_banner_tagline.png}
+      \end{tcolorbox}\par
+    }
+    \makeatletter
 \end{titlepage}
 
 \newpage
