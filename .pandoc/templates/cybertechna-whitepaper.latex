@@ -66,7 +66,7 @@
 }
 
 % Optional: If you want to style table lines cleanly
-\承\renewcommand{\heavyrulewidth}{1.5pt}
+\renewcommand{\heavyrulewidth}{1.5pt}
 \renewcommand{\lightrulewidth}{0.5pt}
     \tcbset{colborder right=cyberred}
 \usepackage[most]{tcolorbox}
