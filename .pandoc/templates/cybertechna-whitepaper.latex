@@ -180,7 +180,47 @@ Transitioning your organization from baseline IT compliance to true board-level 
 \vspace{0.5cm}
 {\small\bfseries\color{cyberblue} CORPORATE OFFICE}\par
 {\small\color{charcoal} 850-737-1706}\par
-
+% --- About Me / Author Bio Block ---
+\vspace{1.5cm} 
+\begin{tcolorbox}[
+    enhanced,
+    frame hidden,
+    sharp corners,
+    boxrule=0pt,
+    leftrule=4pt,         % Left border only
+    colborder=cyberred,    % Brand red bar
+    colback=lightgray!30,  % Subtle backing
+    left=15pt, right=15pt, top=15pt, bottom=15pt
+]
+\begin{minipage}[c]{0.25\textwidth}
+    \centering
+    % Photo Placeholder Box (Will show an actual image once you provide 'headshot.jpg')
+    \makeatletter
+    \@ifundefined{includegraphics}{
+        \color{gray}\rule{2.8cm}{3.5cm} % Fallback gray box
+    }{
+        % Try loading your photo; defaults to a clean bordered box if file isn't found yet
+        \IfFileExists{img/headshot.jpg}{
+            \includegraphics[width=2.8cm, height=3.5cm, keepaspectratio]{img/headshot.jpg}
+        }{
+            \begingroup
+            \color{gray!50}\def\layer_box{\rule{2.8cm}{3.5cm}}
+            \label{\layer_box}\framebox(80,100){\small\color{charcoal}PHOTO}
+            \endgroup
+        }
+    }
+    \makeatother
+\end{minipage}%
+\hfill%
+\begin{minipage}[c]{0.70\textwidth}
+    {\large\bfseries\color{darkblue} About the Author}\par
+    \vspace{0.3cm}
+    {\small\color{charcoal}
+    \textbf{Kevin Robinson} is a seasoned cybersecurity executive specializing in strategic corporate governance, fiduciary risk mitigation, and fractional vCISO leadership. With extensive technical foresight, he helps organizations bridge the gap between complex structural vulnerabilities and boardroom risk management metrics.
+    }
+\end{minipage}
+\end{tcolorbox}
+\vspace{1cm}
 \vfill
 {\footnotesize\color{gray} \copyright\ 2026 Cybertechna LLC. All rights reserved. | Strategic Advisory \& Cyber Governance Services}
 
