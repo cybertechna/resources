@@ -46,7 +46,7 @@
 
 % FIXED: Wrapped with makeatletter/makeatother so LaTeX understands the @ character
 \makeatletter
-\at@start@of@document{%
+\AtStartOfDocument{%
   \let\oldlongtable\longtable
   \renewcommand{\longtable}{\color{charcoal}\small\oldlongtable}
 }
