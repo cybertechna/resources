@@ -16,8 +16,8 @@
 \setmainfont{Inter}[
   Scale=0.95, % Inter runs slightly large, 0.95 scales it beautifully to 11pt
   Ligatures=TeX,
-  BoldFont={* Bold},
-  ItalicFont={* Italic}
+%  BoldFont={* Bold},
+%  ItalicFont={* Italic}
 ]
 \setsansfont{Inter}[Scale=0.95]
 
