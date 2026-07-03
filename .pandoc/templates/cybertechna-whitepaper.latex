@@ -82,13 +82,12 @@
       sharp corners,
       boxrule=0pt,
       leftrule=6pt,                % Thick left border
-      colframe=cyberblue,         % Left bar color (Blue)
       colback=lightgray!40,        % Subtle background tint
       fontupper=\large\itshape\color{charcoal}, % Bigger italicized text
       top=14pt, bottom=14pt, left=16pt, right=16pt,
       overlay={
         \draw[line width=4pt, cyberred] (frame.north east) -- (frame.south east);
-        \draw[line width=4pt, cyberblue] (fram.north west) -- (frame.south
+        \draw[line width=4pt, cyberblue] (frame.north west) -- (frame.south
         west); 
       }
     ]
@@ -123,16 +122,16 @@
     
     \centering
         %\vspace{1.5cm}
-    \vspace{2.5cm}
+    \vspace{1.5cm}
     {\color{white}\normalsize\bfseries {$header$}\par}
     
-    \vspace{1.5cm}
+    \vspace{0.5cm}
     {\color{white}\makebox[\textwidth]{\rule{0.4\textwidth}{0.5pt}}\par}
     \vspace{1.5cm}
     
     {\Huge\bfseries\color{white} {$title$}\par}
     
-    \vspace{0.8cm}
+    \vspace{0.5cm}
     {\large\itshape\color{white!80!blue} {$subtitle$}\par}
     
     \vfill
@@ -143,6 +142,7 @@
     \textbf{Published:} {$date$} \\
     \textbf{Target Audience:} {$audience$}
     \end{flushleft}
+    \vspace{1cm}
         % --- Logo with Clean White Background Card ---
     \makeatletter
     \@ifundefined{includegraphics}{}{%
@@ -173,13 +173,13 @@ $body$
 % --- Standalone Back-Page Styling ---
 \newpage
 \thispagestyle{empty}
-\vspace*{2cm}
+\vspace*{1cm}
 \centering
 
 \makeatletter
 \@ifundefined{includegraphics}{}{%
   \includegraphics[width=0.4\textwidth]{img/cybertechna_logo_banner_tagline.png}\par
-\vspace{1.5cm}
+\vspace{1.0cm}
 }
 \makeatother
 
@@ -190,7 +190,7 @@ $body$
 Transitioning your organization from baseline IT compliance to true board-level cyber resilience requires proven, executive-level technical foresight. Whether establishing an internal CISO office or deploying a flexible, elite fractional VCISO structure, Cybertechna LLC provides the governance blueprint your leadership needs.
 \end{minipage}
 
-\vspace{2cm}
+\vspace{1.5cm}
 {\small\bfseries\color{cyberblue} DIRECT INQUIRIES}\par
 {\small\color{charcoal} info@cybertechna.com}\par
 
