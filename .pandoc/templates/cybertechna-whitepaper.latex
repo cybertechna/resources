@@ -48,12 +48,26 @@
 \renewcommand{\arraystretch}{1.4} 
 
 % CLEAN NATIVE FIX: Stylizes the longtable right as the document starts
+% \AtBeginDocument{
+%   \let\oldlongtable\longtable
+%   \renewcommand{\longtable}{\color{charcoal}\small\oldlongtable}
+% }
+% \usepackage[most]{tcolorbox}
+\usepackage{colortbl} % Required for row coloring
+
 \AtBeginDocument{
   \let\oldlongtable\longtable
-  \renewcommand{\longtable}{\color{charcoal}\small\oldlongtable}
+  \renewcommand{\longtable}{
+    \color{charcoal}\small
+    \oldlongtable
+  }
+  % Colors the first row (headers) darkblue, text white
+  \rowcolors{1}{lightgray!50}{white} % Alternating rows
 }
-\usepackage[most]{tcolorbox}
 
+% Optional: If you want to style table lines cleanly
+\承\renewcommand{\heavyrulewidth}{1.5pt}
+\renewcommand{\lightrulewidth}{0.5pt}
 % Redefining Pandoc's quote environment to use a custom framed box
 \renewenvironment{quote}
   {\begin{tcolorbox}[
