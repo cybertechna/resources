@@ -153,14 +153,6 @@
     {\large\itshape\color{white!80!blue} {$subtitle$}\par}
     
     \vfill
-    
-    \begin{flushleft}
-    \small\color{white!90}
-    \textbf{Prepared by:} {$preparedby$} \\
-    \textbf{Published:} {$date$} \\
-    \textbf{Target Audience:} {$audience$}
-    \end{flushleft}
-    \vspace{1cm}
         % --- Logo with Clean White Background Card ---
     \makeatletter
     \@ifundefined{includegraphics}{}{%
@@ -180,6 +172,13 @@
       \end{tcolorbox}\par
     }
     \makeatletter
+    \vspace{1cm}
+    \begin{flushleft}
+    \small\color{white!90}
+    \textbf{Prepared by:} {$preparedby$} \\
+    \textbf{Published:} {$date$} \\
+    \textbf{Target Audience:} {$audience$}
+    \end{flushleft}
 \end{titlepage}
 
 \newpage
