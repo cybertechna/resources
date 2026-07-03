@@ -114,7 +114,7 @@
   labelsep=10pt,         % Adds professional breathing room between the bullet and the text
   topsep=6pt,            % Padding above the list block
   itemsep=8pt,           % Extra whitespace between separate bullet items
-  label={\color{cyberblue}\large$\bullet$} % Custom bold, cyberblue bullet points
+  label={\color{cyberblue}\large$\textbullet} % Custom bold, cyberblue bullet points
 }
 
 % --- 10. HEADER/FOOTER CONFIGURATION ---
