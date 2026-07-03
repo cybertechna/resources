@@ -53,15 +53,20 @@
 % --- 7. PROFESSIONAL TABLE STYLING ---
 \renewcommand{\arraystretch}{1.5} % Extra breathing room for executive reading
 
+% Style longtable captions to act as the title banner
+\usepackage{caption}
+\DeclareCaptionFormat{cybertable}{%
+  \colorbox{darkblue}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{\centering\color{white}\bfseries\large #3}}%
+}
+\captionsetup[longtable]{format=cybertable, labelformat=empty, skip=0pt, position=top}
+
 \AtBeginDocument{
   \let\oldlongtable\longtable
   \renewcommand{\longtable}{
     \color{charcoal}\small
     \oldlongtable
-    % Create a dark blue banner for the table title that spans all 3 columns
-    \multicolumn{3}{c}{\cellcolor{darkblue}\color{white}\bfseries\large GOVERNANCE COMPARISON BRIEFING} \\ \hline
   }
-  % Colors the header row darkblue and text white, then handles alternating gray rows
+  % Alternating light gray rows
   \rowcolors{1}{lightgray!40}{white}
 }
 
