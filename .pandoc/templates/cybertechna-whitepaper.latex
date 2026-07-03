@@ -31,14 +31,16 @@
 % --- REMOVE STANDARD LATEX NUMBERING ---
 \setcounter{secnumdepth}{0} 
 
-% --- STYLING HEADERS ---
+% --- STYLING HEADERS (Forced Color Fix) ---
+\usepackage{titlesec}
+
 \titleformat{\section}
-  {\color{cyberred}\sffamily\Large\bfseries\filcenter}
+  {\sffamily\Large\bfseries\color{cyberred}\filcenter}
   {}{0em}{}
 \titlespacing*{\section}{0pt}{3.5ex plus 1ex minus .2ex}{2ex plus .2ex}
 
 \titleformat{\subsection}
-  {\color{cyberred}\sffamily\large\bfseries}
+  {\sffamily\large\bfseries\color{cyberred}}
   {}{0em}{}
 \titlespacing*{\subsection}{0pt}{2.5ex plus 0.5ex minus .2ex}{1.5ex plus .2ex}
 
