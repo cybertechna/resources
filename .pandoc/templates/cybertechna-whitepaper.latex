@@ -68,7 +68,10 @@
 % Optional: If you want to style table lines cleanly
 \承\renewcommand{\heavyrulewidth}{1.5pt}
 \renewcommand{\lightrulewidth}{0.5pt}
-% Redefining Pandoc's quote environment to use a custom framed box
+    \tcbset{colborder right=cyberred}
+\usepackage[most]{tcolorbox}
+
+% Redefining Pandoc's quote environment safely without @ syntax errors
 \renewenvironment{quote}
   {\begin{tcolorbox}[
       enhanced,
@@ -76,20 +79,19 @@
       frame hidden,
       sharp corners,
       boxrule=0pt,
-      leftrule=4pt,    % Thick left border
-      rightrule=4pt,   % Thick right border
-      colborder=cyberblue,     % Left bar color
-      colback=lightgray!40,    % Subtle background tint
+      leftrule=4pt,                % Thick left border
+      colborder=cyberblue,         % Left bar color (Blue)
+      colback=lightgray!40,        % Subtle background tint
       fontupper=\large\itshape\color{charcoal}, % Bigger, italicized text
-      top=10pt, bottom=10pt, left=15pt, right=15pt
+      top=12pt, bottom=12pt, left=15pt, right=15pt,
+      % Native overlay to draw the red right bar perfectly on the right edge
+      overlay={
+        \draw[line width=4pt, cyberred] (frame.north east) -- (frame.south east);
+      }
     ]
-    % Hack to swap the right border color to red inside the same box
-    \makeatletter
-    \def\tcb@drawframe@standard{\tcb@drawframe@effects}%
-    \tcbset{colborder right=cyberred}
-    \makeatother
   }
   {\end{tcolorbox}}
+
 % --- PANDOC COMPATIBILITY FALLBACKS ---
 \newcounter{none} 
 \usepackage{calc}
