@@ -31,7 +31,7 @@
 
 % --- 4. GLOBAL FONTS & TYPOGRAPHY ---
 \usepackage{fontspec}
-\setmainfont{Arial}[Scale=1.0i5, Ligatures=TeX]
+\setmainfont{Arial}[Scale=1.05, Ligatures=TeX]
 \setsansfont{Arial}[Scale=1.05]
 \usepackage{csquotes}
 \setstrech{1.15}
