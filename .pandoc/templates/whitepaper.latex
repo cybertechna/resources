@@ -141,7 +141,7 @@
 % --- Cover Page ---
 \begin{titlepage}
     \begin{tikzpicture}[remember picture, overlay]
-        \shade[top color=slate, bottom color=navyblue, shading angle=45]
+        \shade[top color={$topcolor$}, bottom color={$bottomcolor$}, shading angle=45]
             (current page.north west) rectangle (current page.south east);
     \end{tikzpicture}
    

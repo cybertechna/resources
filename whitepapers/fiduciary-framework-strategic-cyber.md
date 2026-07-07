@@ -13,6 +13,10 @@ category: "BOARDROOM RESPONSIBILITIES"
 series: "Oversight & Fiduciary"
 header: "RESPONSIBLE CORPORATE GOVERNANCE"
 
+#Colors
+topcolor: "navyblue"
+bottomcolor: "cyberblue"
+
 # Output Control
 output-file: "../PDFs/cybertechna_fiduciary_cyber_boardroom.pdf"
 template: "../.pandoc/templates/whitepaper.latex"

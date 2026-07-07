@@ -1,0 +1,93 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{tcolorbox}
+
+% --- Brand & Color Definitions ---
+\definecolor{primary}{HTML}{003366}   % Dark Navy (Professional)
+\definecolor{secondary}{HTML}{4682B4} % Steel Blue
+\definecolor{neutral}{HTML}{333333}   % Off-black for text
+\definecolor{lightbg}{HTML}{F4F6F9}   % Light grey for boxes
+
+% --- Typography & Layout ---
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\makeatletter
+\newcommand{\globalcolor}[1]{%
+  \color{#1}\global\let\default@color\current@color
+}
+\makeatother
+\AtBeginDocument{\globalcolor{neutral}}
+
+% --- Section Styling ---
+\titleformat{\section}
+  {\color{primary}\normalfont\Large\bfseries}{}{0em}{}[\titlerule]
+\titleformat{\subsection}
+  {\color{secondary}\normalfont\large\bfseries}{}{0em}{}
+
+\titlespacing*{\section}{0pt}{1.5ex plus 1ex minus .2ex}{1ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{1.2ex plus 1ex minus .2ex}{0.8ex plus .2ex}
+
+% --- Custom Checklist Bullet (\square) ---
+\newlist{checklist}{itemize}{2}
+\setlist[checklist,1]{label=$\square$, leftmargin=1.5em, labelsep=0.8em, itemsep=0.4ex}
+\setlist[checklist,2]{label=$\circ$, leftmargin=1.5em}
+
+% --- Header Info Block ---
+\newcommand{\resourcetitle}[3]{
+    \begin{tcolorbox}[colback=primary, colframe=primary, arc=4mm, textcolor=white, center, halign=center, padding=1em]
+        {\Huge \bfseries #1} \\[0.5em]
+        {\large \textbf{Resource Category:} #2 \,$\cdot$\, \textbf{Updated:} #3}
+    \end{tcolorbox}
+    \vspace{1em}
+}
+
+\begin{document}
+
+% =========================================================================
+% RESOURCES TEMPLATE CONTENT START
+% =========================================================================
+
+\resourcetitle{GLBA Compliance Checklist}{Compliance & Security}{July 2026}
+
+This checklist maps out the necessary regulatory actions required to adhere to the Gramm-Leach-Bliley Act (GLBA), specifically focusing on the Financial Privacy Rule and the Safeguards Rule.
+
+\section{1. Administrative Safeguards}
+Ensure the organizational protocols and personnel structures are in place.
+
+\subsection{Program Management}
+\begin{checklist}
+    \item Appoint a qualified individual/Security Officer to coordinate the Information Security Program.
+    \item Perform a comprehensive, documented risk assessment identifying internal and external threats to NPI (Nonpublic Personal Information).
+    \item Design and implement a regular employee cybersecurity and awareness training program.
+\end{checklist}
+
+\subsection{Vendor Management}
+\begin{checklist}
+    \item Draft policies requiring all third-party service providers to sign GLBA-compliant data security agreements.
+    \item Periodically monitor and assess the security practices of external vendors with access to systems.
+\end{checklist}
+
+
+\section{2. Technical & Physical Safeguards}
+Deploy strong digital and physical defenses to protect consumer records.
+
+\subsection{Access Controls \& Encryption}
+\begin{checklist}
+    \item Implement Multi-Factor Authentication (MFA) for all employees and users accessing customer data.
+    \item Apply data encryption measures both for data at rest and data in transit.
+    \item Enforce the principle of least privilege, restricting user accounts to data essential for their specific roles.
+    \item Maintain secure data disposal protocols (e.g., destroying or purging records after 2 years of inactivity).
+\end{checklist}
+
+\subsection{Monitoring \& Incident Response}
+\begin{checklist}
+    \item Set up automated security logs and systems to actively monitor unauthorized or suspicious access attempts.
+    \item Develop and regularly test a written Disaster Recovery (DR) and Business Continuity Plan (BCP).
+\end{checklist}
+
+\end{document}
