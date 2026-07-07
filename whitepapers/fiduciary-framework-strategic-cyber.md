@@ -38,7 +38,8 @@ Historically, a dangerous translation gap has existed within enterprises:
 
 When technical telemetry is presented to the board as an abstract list of "high-priority patches," the board cannot accurately evaluate the *material risk* to the business. Consequently, cyber security is frequently misallocated as an operational expense (OpEx) to be minimized rather than a strategic risk management pillar to be optimized.
 
----
+>Compliance is no longer a checkboxes-and-audits exercise; it is a legally
+>binding fiduciary mandate.
 
 ## 2. The Fiduciary Framework: Mapping Telemetry to Liability
 The Fiduciary Framework bridges this gap by translating real-time asset and vulnerability telemetry into financial liability metrics. This is achieved via a three-tier translation model:
@@ -70,20 +71,17 @@ Technical telemetry is consolidated into an executive view that displays:
 
 * Compliance health tracking against relevant legal frameworks.
 
----
-
 ## 3. The Regulatory Imperative: Compliance as a Non-Negotiable
 Compliance is no longer a checkboxes-and-audits exercise; it is a legally binding fiduciary mandate. Regulatory bodies worldwide have dramatically increased enforcement:
 
-* \bullethead{SEC Cyber Disclosure Rules:} Publicly traded companies must disclose material cyber incidents within four business days and detail their board-level cyber risk oversight processes annually.
+* \bullethead{SEC Cyber Disclosure Rules.} Publicly traded companies must disclose material cyber incidents within four business days and detail their board-level cyber risk oversight processes annually.
 
-* \bullethead{NIS 2 & DORA (Europe):} Mandate strict risk management practices and hold corporate executives personally liable for non-compliance.
+* \bullethead{NIS 2 \& DORA (Europe).} Mandate strict risk management practices and hold corporate executives personally liable for non-compliance.
 
-* \bullethead{Industry Standards (PCI-DSS 4.0, SOC 2, ISO 27001):} Require continuous monitoring, verifiable telemetry, and explicit alignment with corporate governance.
+* \bullethead{Industry Standards (PCI-DSS 4.0, SOC 2, ISO 27001).} Require continuous monitoring, verifiable telemetry, and explicit alignment with corporate governance.
 
 Failing to maintain compliance introduces massive legal liabilities, threatens director indemnification (D&O insurance validity), and leaves the corporation exposed to class-action litigation following a breach.
 
----
 
 ## 4. How Cybertechna Operationalizes the Fiduciary Framework
 
@@ -98,18 +96,16 @@ Our proprietary analytics layer ingests raw vulnerability data and calculates re
 ### III. Strategic Board Advisory & Governance
 Cybertechna acts as the translation layer between your technical security infrastructure and your executive leadership. We help build formalized corporate governance structures, prepare board-ready risk reports, and ensure that your security strategy withstands regulatory scrutiny.
 
----
 
 ## 5. Compliance as a Strategic Multiplier
 While many view compliance as a regulatory burden, Cybertechna transforms it into a **strategic option and market advantage**:
 
-* \bullethead{Accelerated Trust and Sales Velocity:} Enterprises prefer secure supply chains. B2B buyers routinely demand proof of SOC 2 or ISO compliance. Cybertechna enables you to leverage your compliant state to win larger enterprise contracts faster.
+* \bullethead{Accelerated Trust \& Sales Velocity.} Enterprises prefer secure supply chains. B2B buyers routinely demand proof of SOC 2 or ISO compliance. Cybertechna enables you to leverage your compliant state to win larger enterprise contracts faster.
 
-* \bullethead{Optimized Insurance Premiums:} Insurance carriers look favorably upon organizations with quantified risk models and continuous compliance. Working with Cybertechna helps reduce cyber insurance premiums and ensures policy payouts by eliminating claims of "negligence."
+* \bullethead{Optimized Insurance Premiums.} Insurance carriers look favorably upon organizations with quantified risk models and continuous compliance. Working with Cybertechna helps reduce cyber insurance premiums and ensures policy payouts by eliminating claims of "negligence."
 
-* \bullethead{Proactive Capital Allocation:} By knowing exactly which vulnerabilities pose the highest financial liability, organizations avoid wasting budget on low-impact security tools and instead invest precisely where risk reduction per dollar is maximized.
+* \bullethead{Proactive Capital Allocation.} By knowing exactly which vulnerabilities pose the highest financial liability, organizations avoid wasting budget on low-impact security tools and instead invest precisely where risk reduction per dollar is maximized.
 
----
 
 ## Conclusion
 Cyber security is no longer an IT issue; it is a fundamental dimension of corporate governance. The Fiduciary Framework demands that executive leadership treats technical vulnerabilities with the same financial rigor applied to liquidity, market, or credit risk.
