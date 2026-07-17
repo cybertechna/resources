@@ -21,8 +21,8 @@ toc-depth: 2
 numbersections: false
 papersize: letter
 fontsize: 12pt
-topcolor: "slate"
-bottomcolor: "navyblue"
+topcolor: "black"
+bottomcolor: "charcoal"
 ---
 
 ## Executive Summary
@@ -38,8 +38,11 @@ To proactively mitigate these threats, the Chief Information Security Officer (C
 Historically, cybersecurity was managed as an operational IT expense. Security investments were judged strictly by tactical outcomes—patches applied, firewalls deployed, and vulnerabilities closed. However, as business models have pivoted to digital-first architectures, cloud environments, and deeply integrated global supply chains, the surface area for risk has broadened exponentially.
 
 Today, a cyber incident is rarely just a technical disruption. It is an immediate crisis affecting:
+
 * \bullethead{Liquidity \& Revenue.} Immediate ransom costs, remediation expenses, and long-term operational downtime.
+
 * \bullethead{Regulatory Compliance.} Heavy fines from strict data privacy laws (e.g., GDPR, SEC rules, NIS2).
+
 * \bullethead{Reputational Equity.} Erosion of consumer trust, brand degradation, and plummeting market capitalization.
 
 When ransomware paralyzes a manufacturing line or data exfiltration compromises critical Intellectual Property (IP), the impact ripples across the entire balance sheet. Therefore, treating cyber-risk separately from general enterprise risk management (ERM) is a structural blind spot that threatens long-term corporate viability.
@@ -49,10 +52,12 @@ When ransomware paralyzes a manufacturing line or data exfiltration compromises 
 When the CISO is separated from the core C-suite—often reporting through multiple management layers such as an IT Director or Chief Information Officer (CIO)—several organizational failures occur naturally:
 
 * \bullethead{Information Asymmetry.} Strategic business decisions—such as mergers and acquisitions, new market expansions, or rapid product rollouts—are executed without prior security architecture reviews. This leads to retrofitted security measures, which are systematically more costly and less resilient.
+
 * \bullethead{Misaligned Priorities.} A CIO focuses primarily on operational uptime, speed to market, and technological efficiency. A CISO focuses on risk, visibility, and control. When the CISO reports to the CIO, a structural conflict of interest occurs, frequently resulting in risk concealment or underfunding of critical security baselines in favor of high-visibility feature development.
+
 * \bullethead{Transactional Communication.} Without direct C-suite exposure, interactions between security and executive leadership become reactive, focusing on "what went wrong" during an incident rather than strategic forward planning.
 
-> **The Paradox of Reporting Lines**
+> **The Paradox of Reporting Lines** \\
 > Research continuously demonstrates that organizations where the CISO reports directly to the CEO, COO, or a dedicated Chief Risk Officer experience faster response times, lower overall financial losses from data breaches, and greater agility when pursuing transformative digital initiatives.
 
 
