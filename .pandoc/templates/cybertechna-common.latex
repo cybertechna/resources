@@ -1,0 +1,213 @@
+% =============================================================================
+% Cybertechna shared preamble (pandoc partial). Included by whitepaper.latex, briefing.latex,
+% decision.latex and checklist.latex (pandoc partial syntax: dollar, name, parentheses).
+% Brand: cyber blue + cyber red on charcoal/navy, Inter throughout. Engine: lualatex.
+% NOTE: this file is a pandoc template, so never write a bare dollar sign here (use \textdollar).
+% =============================================================================
+
+% ---- Palette (the original whitepaper colour names are kept, so topcolor/bottomcolor still work) ----
+\definecolor{cyberblue}{HTML}{1055CC}
+\definecolor{cyberred}{HTML}{CC0100}
+\definecolor{darkblue}{HTML}{061F4F}
+\definecolor{navyblue}{HTML}{172554}
+\definecolor{slate}{HTML}{010619}
+\definecolor{charcoal}{HTML}{333333}
+\definecolor{lightgray}{HTML}{F4F6F8}
+\definecolor{cybermuted}{HTML}{5B6573}
+\definecolor{cyberline}{HTML}{D5DBE3}
+\definecolor{cyberblue50}{HTML}{EAF1FC}
+\definecolor{cyberred50}{HTML}{FDEEEE}
+\color{charcoal}
+
+% ---- Fonts: Inter (ships with TeX Live) --------------------------------------------------------
+\usepackage{fontspec}
+\directlua{
+  luaotfload.add_fallback("cybfallback", {"FreeSerif.otf:mode=node;", "STIXTwoMath-Regular.otf:mode=node;", "DejaVuSans.ttf:mode=node;"})
+}
+\setmainfont{Inter}[Extension=.otf, UprightFont=*-Regular, BoldFont=*-Bold,
+  ItalicFont=*-Italic, BoldItalicFont=*-BoldItalic, RawFeature={fallback=cybfallback}]
+\setsansfont{Inter}[Extension=.otf, UprightFont=*-Regular, BoldFont=*-Bold,
+  ItalicFont=*-Italic, BoldItalicFont=*-BoldItalic, RawFeature={fallback=cybfallback}]
+\newfontfamily\cybdisplayfont{Inter}[Extension=.otf, UprightFont=*-Bold, BoldFont=*-Bold,
+  LetterSpace=-2.0, RawFeature={fallback=cybfallback}]
+\newfontfamily\cybheadfont{Inter}[Extension=.otf, UprightFont=*-Bold, BoldFont=*-Bold,
+  LetterSpace=-1.2, RawFeature={fallback=cybfallback}]
+% Small tracked uppercase labels (eyebrows, table headers, meta labels)
+\newfontfamily\cybcapsfont{Inter}[Extension=.otf, UprightFont=*-Bold, BoldFont=*-Bold,
+  LetterSpace=10, RawFeature={fallback=cybfallback}]
+\IfFontExistsTF{CascadiaCode-Regular.otf}{%
+  \setmonofont{CascadiaCode}[Extension=.otf, UprightFont=*-Regular, BoldFont=*-SemiBold,
+    ItalicFont=*-Italic, BoldItalicFont=*-SemiBoldItalic, Scale=0.86,
+    RawFeature={fallback=cybfallback;-calt;-liga}]}{%
+  \setmonofont{DejaVu Sans Mono}[Scale=0.84, RawFeature={-calt;-liga}]}
+
+\usepackage[final,protrusion=true,expansion=false]{microtype}
+\usepackage{etoolbox}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{lastpage}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>0.75\textheight 0.75\textheight\else\Gin@nat@height\fi}
+\makeatother
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage[skins,breakable]{tcolorbox}
+\usepackage{needspace}
+\usepackage{calc}
+\usepackage{setspace}
+
+% ---- Page and text rhythm ----------------------------------------------------------------------------
+\linespread{1.2}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55\baselineskip plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}
+\widowpenalty=10000
+\clubpenalty=10000
+\raggedbottom
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setlist{itemsep=0.3\baselineskip, topsep=0.25\baselineskip, parsep=0pt, leftmargin=1.5em, labelsep=0.6em}
+\setlist[itemize,1]{label={\color{cyberblue}\textbullet}}
+\setlist[itemize,2]{label={\color{cyberblue}\textendash}}
+\renewcommand{\labelenumi}{\color{cyberblue}\bfseries\arabic{enumi}.}
+\newcommand{\cybnohyph}{\hyphenpenalty=10000 \exhyphenpenalty=10000 \raggedright}
+% Original whitepaper helper: a bold blue run-in term at the start of a bullet.
+\newcommand{\bullethead}[1]{{\bfseries\color{cyberblue}#1}}
+\newcommand{\email}[2]{\href{mailto:#1}{\nolinkurl{#2}}}
+\newcommand{\phone}[2]{\href{tel:#1}{#2}}
+
+% ---- Eyebrow: blue + red tick and a tracked uppercase label ----------------------------------------------
+% \cybeyebrow{Label}   or on a dark surface   \cybeyebrow[white]{Label}
+\newcommand{\cybeyebrow}[2][cyberblue]{%
+  {\noindent\color{cyberblue}\rule[1.6pt]{14pt}{2pt}\color{cyberred}\rule[1.6pt]{4pt}{2pt}\hspace{7pt}\color{#1}\cybcapsfont\fontsize{7.5}{9}\selectfont\MakeUppercase{#2}\par}}
+
+% ---- Headings: navy, bold, with a short blue/red rule under the top level ------------------------------------------
+\newcommand{\cybheadrule}{\par\nobreak\vspace{3pt}\nobreak{\fontsize{1pt}{1pt}\selectfont\noindent\color{cyberblue}\rule{34pt}{2.2pt}\color{cyberred}\rule{8pt}{2.2pt}\par}\nobreak}
+\titleformat{\section}{\cybnohyph\cybheadfont\fontsize{19}{22}\selectfont\color{darkblue}}{{\color{cyberblue}\thesection}}{0.6em}{}[\cybheadrule]
+\titleformat{\subsection}{\cybnohyph\cybheadfont\fontsize{13.5}{16}\selectfont\color{darkblue}}{{\color{cyberblue}\thesubsection}}{0.6em}{}
+\titleformat{\subsubsection}{\cybnohyph\cybheadfont\fontsize{10.5}{13}\selectfont\color{cyberblue}}{{\thesubsubsection}}{0.6em}{}
+\titleformat{\paragraph}[runin]{\cybheadfont\fontsize{10}{12}\selectfont\color{darkblue}}{\theparagraph}{0.6em}{}[.\ ]
+\titlespacing*{\section}{0pt}{2.4\baselineskip plus 0.5\baselineskip}{0.5\baselineskip}
+\titlespacing*{\subsection}{0pt}{1.6\baselineskip plus 0.3\baselineskip}{0.4\baselineskip}
+\titlespacing*{\subsubsection}{0pt}{1.1\baselineskip plus 0.2\baselineskip}{0.3\baselineskip}
+
+% ---- Chips: [Draft]{.chip}  [Approved]{.chip-brand}  [Internal]{.chip-dark} -----------------------------------------
+\newcommand{\cybchip}[1]{\tcbox[on line,nobeforeafter,enhanced,arc=5pt,boxsep=0pt,left=5.5pt,right=5.5pt,top=1.6pt,bottom=1.6pt,
+  colback=lightgray,colframe=cyberline,boxrule=0.5pt,before upper={\fontsize{7.5}{9}\selectfont\bfseries\color{cybermuted}}]{#1}}
+\newcommand{\cybchipbrand}[1]{\tcbox[on line,nobeforeafter,enhanced,arc=5pt,boxsep=0pt,left=5.5pt,right=5.5pt,top=1.6pt,bottom=1.6pt,
+  colback=cyberblue,colframe=cyberblue,boxrule=0.5pt,before upper={\fontsize{7.5}{9}\selectfont\bfseries\color{white}}]{#1}}
+\newcommand{\cybchipdark}[1]{\tcbox[on line,nobeforeafter,enhanced,arc=5pt,boxsep=0pt,left=5.5pt,right=5.5pt,top=1.6pt,bottom=1.6pt,
+  colback=darkblue,colframe=darkblue,boxrule=0.5pt,before upper={\fontsize{7.5}{9}\selectfont\bfseries\color{white}}]{#1}}
+\newcommand{\cybchipred}[1]{\tcbox[on line,nobeforeafter,enhanced,arc=5pt,boxsep=0pt,left=5.5pt,right=5.5pt,top=1.6pt,bottom=1.6pt,
+  colback=cyberred,colframe=cyberred,boxrule=0.5pt,before upper={\fontsize{7.5}{9}\selectfont\bfseries\color{white}}]{#1}}
+
+% ---- Lead paragraph ------------------------------------------------------------------------------------------------------------
+\newcommand{\cyblead}[1]{{\fontsize{12}{18}\selectfont\color{cybermuted}\begin{minipage}{0.94\linewidth}#1\end{minipage}\par}}
+
+% ---- Callouts (from Markdown: ::: note | ::: {.warning title="..."} | ::: decision) -------------------------------------
+\newcommand{\cybcallouttitle}[2]{\ifstrempty{#2}{}{{\color{#1}\cybcapsfont\fontsize{7.5}{9}\selectfont\MakeUppercase{#2}\par}\vspace{0.4\baselineskip}}}
+\newtcolorbox{cybnote}[1][]{enhanced,breakable,sharp corners,boxrule=0pt,frame hidden,colback=cyberblue50,
+  borderline west={3pt}{0pt}{cyberblue},left=13pt,right=12pt,top=9pt,bottom=9pt,before skip=0.7\baselineskip,after skip=0.7\baselineskip,
+  before upper={\cybcallouttitle{cyberblue}{#1}\setlength{\parskip}{0.4\baselineskip}\raggedright}}
+\newtcolorbox{cybwarning}[1][]{enhanced,breakable,sharp corners,boxrule=0pt,frame hidden,colback=cyberred50,
+  borderline west={3pt}{0pt}{cyberred},left=13pt,right=12pt,top=9pt,bottom=9pt,before skip=0.7\baselineskip,after skip=0.7\baselineskip,
+  before upper={\cybcallouttitle{cyberred}{#1}\setlength{\parskip}{0.4\baselineskip}\raggedright}}
+% Key point / decision: the dark navy card (use once per page).
+\newtcolorbox{cybdecision}[1][]{enhanced,breakable,sharp corners,boxrule=0pt,frame hidden,
+  interior style={left color=darkblue,right color=navyblue,shading angle=0},
+  borderline west={4pt}{0pt}{cyberred},coltext=white,left=15pt,right=14pt,top=11pt,bottom=11pt,before skip=0.8\baselineskip,after skip=0.8\baselineskip,
+  before upper={\cybcallouttitle{white!70!cyberblue}{#1}\setlength{\parskip}{0.4\baselineskip}\raggedright}}
+% Pull quote (Markdown block quote): the original blue + red double bar.
+\renewenvironment{quote}
+  {\begin{tcolorbox}[enhanced,breakable,frame hidden,sharp corners,boxrule=0pt,leftrule=6pt,colback=lightgray,
+      fontupper=\itshape\color{charcoal},top=13pt,bottom=13pt,left=18pt,right=18pt,
+      before skip=0.8\baselineskip,after skip=0.8\baselineskip,
+      overlay={\draw[line width=4pt,cyberred] (frame.north east) -- (frame.south east);
+               \draw[line width=4pt,cyberblue] (frame.north west) -- (frame.south west);}]%
+   \setlength{\parskip}{0.4\baselineskip}\large}
+  {\end{tcolorbox}}
+% Stat tile: \cybstat{2 days}{Typical turn time}
+\newcommand{\cybstat}[2]{\begin{tcolorbox}[enhanced,sharp corners,boxrule=0pt,frame hidden,colback=lightgray,
+  borderline north={2.2pt}{0pt}{cyberblue},left=10pt,right=8pt,top=9pt,bottom=8pt,before skip=0pt,after skip=0pt]
+  {\cybdisplayfont\fontsize{21}{23}\selectfont\color{darkblue}#1\par}\vspace{2pt}
+  {\fontsize{8}{10.5}\selectfont\color{cybermuted}#2\par}\end{tcolorbox}}
+
+% ---- Code ---------------------------------------------------------------------------------------------------------------------------
+\usepackage{fvextra}
+\newtcolorbox{cybcode}{enhanced,breakable,sharp corners,boxrule=0pt,frame hidden,colback=lightgray,
+  borderline west={2pt}{0pt}{cyberline},left=10pt,right=8pt,top=6pt,bottom=6pt,before skip=0.6\baselineskip,after skip=0.7\baselineskip,
+  before upper={\setlength{\parskip}{0pt}}}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\},breaklines,breakanywhere,fontsize=\footnotesize}
+\RecustomVerbatimEnvironment{verbatim}{Verbatim}{breaklines,breakanywhere,fontsize=\footnotesize}
+\BeforeBeginEnvironment{verbatim}{\begin{cybcode}}
+\AfterEndEnvironment{verbatim}{\end{cybcode}}
+\let\Shaded\undefined\let\endShaded\undefined
+\newenvironment{Shaded}{\begin{cybcode}}{\end{cybcode}}
+
+% ---- Tables ---------------------------------------------------------------------------------------------------------------------------
+% cybertechna-tables.lua draws pipe tables as a framed grid (navy header row, zebra rows). With table-style: plain, pandoc's own
+% longtable is used and these defaults keep it tidy.
+\usepackage{longtable,array,booktabs,colortbl}
+\AtBeginEnvironment{longtable}{\small\setlength{\tabcolsep}{6pt}\renewcommand{\arraystretch}{1.35}\arrayrulecolor{cyberline}}
+\newcommand{\cybth}[1]{{\cybcapsfont\fontsize{7.5}{9}\selectfont\color{cybermuted}\MakeUppercase{#1}}}
+\setlength{\LTleft}{0pt}\setlength{\LTright}{\fill}
+\setlength{\LTpre}{0.7\baselineskip}
+\setlength{\LTpost}{0.7\baselineskip}
+\heavyrulewidth=0.9pt \lightrulewidth=0.4pt
+\definecolor{cybgrid}{HTML}{A9B3C1}
+
+% ---- Checklist boxes (task lists: "- [ ] item" and "- [x] item") ------------------------------------------------------------
+\newcommand{\cybbox}{\tikz[baseline=0pt]\draw[cyberblue,line width=0.9pt,rounded corners=1.2pt] (0,-0.12em) rectangle (0.9em,0.78em);}
+\newcommand{\cybboxdone}{\tikz[baseline=0pt]{\draw[cyberblue,fill=cyberblue,line width=0.9pt,rounded corners=1.2pt] (0,-0.12em) rectangle (0.9em,0.78em);
+  \draw[white,line width=1.1pt,line cap=round,line join=round] (0.2em,0.34em) -- (0.38em,0.1em) -- (0.7em,0.6em);}}
+\newlist{cybchecklist}{itemize}{3}
+\setlist[cybchecklist]{label={}, align=left, leftmargin=1.9em, labelsep=0.5em, labelwidth=1.4em, itemsep=0.45\baselineskip, topsep=0.3\baselineskip, parsep=0pt}
+\setlist[cybchecklist,1]{label={}}
+\setlist[cybchecklist,2]{label={}}
+\setlist[cybchecklist,3]{label={}}
+
+% Open items: [CONFIRM ...], [TBD ...] print bold red so nothing is shipped half finished.
+\newcommand{\cybopen}[1]{{\leavevmode\bfseries\color{cyberred}#1}}
+
+% ---- Shared page furniture ----------------------------------------------------------------------------------------------------
+\newcommand{\cyborg}{$if(org)$$org$$else$Cybertechna LLC$endif$}
+\newcommand{\cybfootleft}{$if(series)$$series$$else$\cyborg$endif$$if(classification)$\ \textperiodcentered\ $classification$$endif$$if(status)$\ \textperiodcentered\ $status$$endif$$if(version)$\ \textperiodcentered\ v$version$$endif$}
+\newcommand{\cybmeta}[2]{\ifstrempty{#2}{}{{\color{cybermuted}\cybcapsfont\fontsize{6.5}{8}\selectfont\MakeUppercase{#1}}\hspace{0.5em}{#2}\hspace{1.8em}}}
+% Logo files: the builder passes absolute paths; running pandoc by hand falls back to ./img/ beside the Markdown.
+\newcommand{\cyblogobanner}{$if(cyber-logo)$$cyber-logo$$else$img/cybertechna_logo_banner_tagline.png$endif$}
+\newcommand{\cyblogosmall}{$if(cyber-logo-small)$$cyber-logo-small$$else$img/cybertechna_banner_logo.png$endif$}
+\newcommand{\cybauthorphoto}{$if(cyber-photo)$$cyber-photo$$else$img/kevin.png$endif$}
+
+% Running header and footer. \cybheaderstyle is used by every layout after page one.
+\fancypagestyle{cyb}{%
+  \fancyhf{}%
+  \renewcommand{\headrulewidth}{0.5pt}\renewcommand{\headrule}{\hbox to\headwidth{\color{cyberline}\leaders\hrule height \headrulewidth\hfill}}%
+  \renewcommand{\footrulewidth}{0pt}%
+  \fancyhead[L]{{\color{cyberblue}\rule[1.4pt]{12pt}{1.8pt}}\color{cyberred}\rule[1.4pt]{3pt}{1.8pt}\hspace{6pt}{\color{cybermuted}\cybcapsfont\fontsize{6.5}{8}\selectfont\MakeUppercase{\cyborg}}}%
+  \fancyhead[R]{\color{cybermuted}\fontsize{7.5}{9}\selectfont $if(category)$$category$$elseif(shorttitle)$$shorttitle$$else$$title$$endif$}%
+  \fancyfoot[L]{\color{cybermuted}\fontsize{7.5}{9}\selectfont\cybfootleft}%
+  \fancyfoot[R]{\color{cybermuted}\fontsize{7.5}{9}\selectfont\thepage\ / \pageref*{LastPage}}%
+}
+\fancypagestyle{cybfirst}{%
+  \fancyhf{}\renewcommand{\headrulewidth}{0pt}\renewcommand{\footrulewidth}{0pt}%
+  \fancyfoot[L]{\color{cybermuted}\fontsize{7.5}{9}\selectfont\cybfootleft}%
+  \fancyfoot[R]{\color{cybermuted}\fontsize{7.5}{9}\selectfont\thepage\ / \pageref*{LastPage}}%
+}
+\pagestyle{cyb}
+
+% Table of contents, if the document asks for one (toc: true)
+\usepackage[titles]{tocloft}
+\renewcommand{\cftsecfont}{\bfseries\color{darkblue}}
+\renewcommand{\cftsecpagefont}{\bfseries\color{darkblue}}
+\renewcommand{\cftsubsecfont}{\color{charcoal}}
+\renewcommand{\cftsubsecpagefont}{\color{charcoal}}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}
+\setlength{\cftbeforesecskip}{0.6em}
+\setlength{\cftbeforesubsecskip}{0.15em}
+\renewcommand{\cftdotsep}{2}
+\renewcommand{\cfttoctitlefont}{\cybheadfont\fontsize{19}{22}\selectfont\color{darkblue}}
+\setlength{\cftaftertoctitleskip}{1.2em}

@@ -1,258 +1,140 @@
-\documentclass[12pt, letterpaper]{article}
-
-% --- 1. CORE PACKAGES & LAYOUT ---
-\usepackage[margin=1in]{geometry}
-\usepackage{graphicx}
-\usepackage{fancyhdr}
-\usepackage{enumitem}
-\usepackage{titlesec}
-\usepackage{calc}
-\usepackage{setspace}
-\usepackage{enumitem}
-
-% --- 2. TABLES & GRAPHICS ---
-\usepackage{tabularx}
-\usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{array}
-\usepackage{colortbl}
-\usepackage{tikz}
-\usetikzlibrary{calc}
-\usepackage[most]{tcolorbox}
-
-% --- 3. HEX COLOR CONFIGURATION ---
+% Cybertechna white paper: gradient cover page, optional contents, long-form body, branded back page.
+% Pandoc LaTeX template, engine lualatex. Shares cybertechna-common.latex.
+% Metadata read: title, subtitle, header (line above the title), category (running header), series (footer),
+% preparedby, author, date, audience, topcolor, bottomcolor, toc, toc-depth, numbersections, fontsize,
+% nobackpage, backpage-title, backpage-text, nobio, author-bio, org.
+\documentclass[$if(fontsize)$$fontsize$$else$12pt$endif$,letterpaper]{article}
 \usepackage{xcolor}
-\definecolor{cyberblue}{HTML}{1055CC}
-\definecolor{cyberred}{HTML}{CC0100}
-\definecolor{darkblue}{HTML}{061f4f}
-\definecolor{charcoal}{HTML}{333333}
-\definecolor{lightgray}{HTML}{F4F6F8}
-\definecolor{slate}{HTML}{010619}
-\definecolor{navyblue}{HTML}{172554}
+\usepackage{amsmath,amssymb}
+$if(numbersections)$
+\setcounter{secnumdepth}{$if(secnumdepth)$$secnumdepth$$else$3$endif$}
+$else$
+\setcounter{secnumdepth}{-\maxdimen}
+$endif$
+$fonts.latex()$
+\usepackage[$if(margin)$margin=$margin$$elseif(margin-x)$left=$margin-x$,right=$margin-x$,top=1in,bottom=1in$else$left=1.1in,right=1.1in,top=1in,bottom=1in$endif$,headheight=14pt,footskip=30pt]{geometry}
+$common.latex()$
+$cybertechna-common.latex()$
+$for(header-includes)$
+$header-includes$
+$endfor$
+$after-header-includes.latex()$
+$hypersetup.latex()$
+\hypersetup{colorlinks=true,linkcolor=darkblue,urlcolor=cyberblue,citecolor=cyberblue,filecolor=cyberblue,pdfborder={0 0 0},breaklinks=true}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{}
 
-% --- 4. GLOBAL FONTS & TYPOGRAPHY ---
-\usepackage[sfdefault, semibold]{inter}
-\usepackage{microtype}
-\setstretch{1.25}                    % Your original line spacing
-\renewcommand{\normalsize}{\fontsize{12pt}{14.4pt}\selectfont}
-\normalsize
-% --- 5. HYPERLINKS ---
-\usepackage{hyperref}
-\hypersetup{
-    colorlinks=true,
-    linkcolor=charcoal,
-    urlcolor=charcoal,
-    citecolor=charcoal,
-    filecolor=charcoal,
-    pdfborder={0 0 0},
-    breaklinks=true
-}
-
-% Mailto and Phone helpers
-\newcommand{\email}[2]{\href{mailto:#1}{\nolinkurl{#2}}}
-\newcommand{\phone}[2]{\href{tel:#1}{#2}}
-
-% --- 6. REMOVE STANDARD LATEX NUMBERING ---
-\setcounter{secnumdepth}{0}
-
-% --- 7. STYLING HEADERS ---
-\titleformat{\section}
-  {\sffamily\Large\bfseries\color{charcoal}\filcenter}
-  {}{0em}{}
-\titlespacing*{\section}{0pt}{3.5ex plus 1ex minus .2ex}{2ex plus .2ex}
-
-\titleformat{\subsection}
-  {\sffamily\large\bfseries\color{charcoal}}
-  {}{0em}{}
-\titlespacing*{\subsection}{0pt}{2.5ex plus 0.5ex minus .2ex}{1.5ex plus .2ex}
-
-% --- LIST & TERM STYLING ---
-\newcommand{\bullethead}[1]{{\bfseries\color{cyberblue}#1}}
-
-% --- 8. PROFESSIONAL TABLE STYLING ---
-\renewcommand{\arraystretch}{1.5}
-
-\usepackage{caption}
-\DeclareCaptionFormat{cybertable}{%
-  \parbox{\linewidth}{%
-    {\large\bfseries\color{darkblue} #3}\par
-    \vspace{4pt}
-  }%
-}
-\captionsetup[longtable]{format=cybertable, labelformat=empty, skip=6pt, position=top}
-
-\AtBeginDocument{
-  \let\oldlongtable\longtable
-  \renewcommand{\longtable}{
-    \color{charcoal}\small
-    \oldlongtable
-  }
-  \rowcolors{1}{white}{lightgray!40}
-}
-\renewcommand{\heavyrulewidth}{1.2pt}
-\renewcommand{\lightrulewidth}{0.5pt}
-\setlength{\LTpre}{0pt}
-\setlength{\LTpost}{0pt}
-% --- 9. PREMIUM PULL QUOTE STYLING ---
-\renewenvironment{quote}
-  {\begin{tcolorbox}[
-      enhanced,
-      breakable,
-      frame hidden,
-      sharp corners,
-      boxrule=0pt,
-      leftrule=6pt,
-      colback=lightgray!40,
-      fontupper=\large\itshape\color{charcoal},
-      top=14pt, bottom=14pt, left=16pt, right=16pt,
-      overlay={
-        \draw[line width=4pt, cyberred] (frame.north east) -- (frame.south east);
-        \draw[line width=4pt, cyberblue] (frame.north west) -- (frame.south west);
-      }
-    ]
-  }
-  {\end{tcolorbox}}
-
-% --- 10. PANDOC COMPATIBILITY ---
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-
-\setlist[itemize]{
-  leftmargin=1.5em,
-  labelsep=8pt,
-  topsep=6pt,
-  itemsep=8pt,
-  label={\color{cyberblue}\large\textbullet}
-}
-
-% --- 11. HEADER/FOOTER ---
-\pagestyle{fancy}
-\fancyhf{}
-\rhead{\small\color{gray}{$category$}}
-\lfoot{\small\color{gray}{$series$}}
-\cfoot{\thepage}
-\renewcommand{\headrulewidth}{0.5pt}
-
-% =========================================================================
-% DOCUMENT START
-% =========================================================================
 \begin{document}
+$for(include-before)$
+$include-before$
+$endfor$
 
-% --- Cover Page ---
+% ---- Cover page ------------------------------------------------------------------------------------------
 \begin{titlepage}
-    \begin{tikzpicture}[remember picture, overlay]
-        \shade[top color={$topcolor$}, bottom color={$bottomcolor$}, shading angle=45]
-            (current page.north west) rectangle (current page.south east);
-    \end{tikzpicture}
-   
-    \centering
-    \vspace{1.5cm}
-    {\color{white}\normalsize\bfseries {$header$}\par}
-   
-    \vspace{0.5cm}
-    {\color{white}\makebox[\textwidth]{\rule{0.4\textwidth}{0.5pt}}\par}
-    \vspace{1.5cm}
-   
-    {\Huge\bfseries\color{white} {$title$}\par}
-   
-    \vspace{0.5cm}
-    {\large\itshape\color{white!80!blue} {$subtitle$}\par}
-   
-    \vfill
-   
-    \makeatletter
-    \@ifundefined{includegraphics}{}{%
-      \begin{tcolorbox}[
-        enhanced,
-        colback=white,
-        colframe=white,
-        sharp corners,
-        boxrule=0pt,
-        width=0.6\textwidth,
-        halign=center,
-        valign=center,
-        top=10pt, bottom=10pt, left=10pt, right=10pt,
-        shadow={0mm}{-1mm}{0.5mm}{black!20}
-      ]
-        \includegraphics[width=\linewidth]{img/cybertechna_logo_banner_tagline.png}
-      \end{tcolorbox}\par
-    }
-    \makeatother
-    \vspace{1cm}
-    
-    \begin{flushleft}
-    \small\color{white!90}
-    \textbf{Prepared by:} {$preparedby$} \\
-    \textbf{Published:} {$date$} \\
-    \textbf{Target Audience:} {$audience$}
-    \end{flushleft}
+  \thispagestyle{empty}
+  \begin{tikzpicture}[remember picture, overlay]
+    \shade[top color={$if(topcolor)$$topcolor$$else$darkblue$endif$}, bottom color={$if(bottomcolor)$$bottomcolor$$else$slate$endif$}, shading angle=45]
+      (current page.north west) rectangle (current page.south east);
+    \fill[cyberblue] ([yshift=-0.35cm]current page.north west) rectangle ([yshift=-0.55cm,xshift=0.45\paperwidth]current page.north west);
+    \fill[cyberred] ([yshift=-0.35cm,xshift=0.45\paperwidth]current page.north west) rectangle ([yshift=-0.55cm,xshift=0.55\paperwidth]current page.north west);
+  \end{tikzpicture}
+  \centering
+  \vspace*{1.5cm}
+  {\color{white}\cybcapsfont\fontsize{9}{12}\selectfont\MakeUppercase{$header$}\par}
+  \vspace{0.5cm}
+  {\color{white}\makebox[\textwidth]{\rule{0.4\textwidth}{0.5pt}}\par}
+  \vspace{1.5cm}
+  {\cybnohyph\centering\cybdisplayfont\fontsize{30}{35}\selectfont\color{white} $title$\par}
+$if(subtitle)$
+  \vspace{0.6cm}
+  {\large\itshape\color{white!82!cyberblue} $subtitle$\par}
+$endif$
+  \vfill
+  \begin{tcolorbox}[enhanced, colback=white, colframe=white, sharp corners, boxrule=0pt, width=0.6\textwidth,
+      halign=center, valign=center, top=10pt, bottom=10pt, left=10pt, right=10pt, shadow={0mm}{-1mm}{0.5mm}{black!20}]
+    \includegraphics[width=\linewidth]{\cyblogobanner}
+  \end{tcolorbox}\par
+  \vspace{1cm}
+  \begin{flushleft}
+  \small\color{white!90}
+$if(preparedby)$
+  \textbf{Prepared by:} $preparedby$ \\
+$endif$
+  \textbf{Published:} $date$ \\
+$if(audience)$
+  \textbf{Target Audience:} $audience$
+$endif$
+  \end{flushleft}
 \end{titlepage}
 
-\newpage
 \pagenumbering{arabic}
+$if(toc)$
+\setcounter{tocdepth}{$if(toc-depth)$$toc-depth$$else$2$endif$}
+\renewcommand{\contentsname}{$if(toc-title)$$toc-title$$else$Contents$endif$}
+\tableofcontents
+\newpage
+$endif$
 
-% --- Body Content from Markdown ---
+% ---- Body ---------------------------------------------------------------------------------------------------
 $body$
 
-% --- Standalone Back-Page ---
-\newpage
+% ---- Back page --------------------------------------------------------------------------------------------
+$if(nobackpage)$
+$else$
+\clearpage
 \thispagestyle{empty}
-\vspace*{1cm}
-\centering
-
-\makeatletter
-\@ifundefined{includegraphics}{}{%
-  \includegraphics[width=0.4\textwidth]{img/cybertechna_logo_banner_tagline.png}\par
-  \vspace{1.0cm}
-}
-\makeatother
-
-{\Large\bfseries\color{cyberblue} Secure Your Executive Horizon\par}
+\vspace*{0.5cm}
+\begin{center}
+\includegraphics[width=0.4\textwidth]{\cyblogobanner}\par
+\vspace{1.0cm}
+{\cybheadfont\Large\color{cyberblue} $if(backpage-title)$$backpage-title$$else$Secure Your Executive Horizon$endif$\par}
 \vspace{0.5cm}
-
 \begin{minipage}{0.85\textwidth}
 \centering\color{charcoal}
+$if(backpage-text)$
+$backpage-text$
+$else$
 Transitioning your organization from baseline IT compliance to true board-level cyber resilience requires proven, executive-level technical foresight. Whether establishing an internal CISO office or deploying a flexible, elite fractional vCISO structure, Cybertechna LLC provides the governance blueprint your leadership needs.
+$endif$
 \end{minipage}
+\vspace{1.2cm}
 
-\vspace{1.5cm}
-
-{\small\bfseries\color{cyberred} DIRECT INQUIRIES}\par
-\email{mailto:info@cybertechna.com}{info@cybertechna.com}\par
+{\cybcapsfont\fontsize{7.5}{9}\selectfont\color{cyberred} DIRECT INQUIRIES\par}
+\vspace{2pt}
+\email{info@cybertechna.com}{info@cybertechna.com}\par
 \vspace{0.5cm}
-
-{\small\bfseries\color{cyberred} CORPORATE OFFICE}\par
-\phone{tel:8507371706}{850-737-1706}\par
-
-% --- About the Author ---
-\vspace{1.5cm}
-\begin{tcolorbox}[
-    enhanced,
-    frame hidden,
-    sharp corners,
-    boxrule=0pt,
-    leftrule=4pt,
-    colframe=cyberred,
-    colback=lightgray!30,
-    left=15pt, right=15pt, top=15pt, bottom=15pt
-]
-\begin{minipage}[c]{0.25\textwidth}
-    \centering
-    \includegraphics[width=3cm, height=5.5cm, keepaspectratio]{img/kevin.png}
+{\cybcapsfont\fontsize{7.5}{9}\selectfont\color{cyberred} CORPORATE OFFICE\par}
+\vspace{2pt}
+\phone{8507371706}{850-737-1706}\par
+\end{center}
+$if(nobio)$
+$else$
+\vspace{1.2cm}
+\begin{tcolorbox}[enhanced, frame hidden, sharp corners, boxrule=0pt, borderline west={4pt}{0pt}{cyberred},
+    colback=lightgray, left=15pt, right=15pt, top=15pt, bottom=15pt]
+\begin{minipage}[c]{0.25\linewidth}
+  \centering
+  \includegraphics[width=3cm, height=5.5cm, keepaspectratio]{\cybauthorphoto}
 \end{minipage}%
 \hfill%
-\begin{minipage}[c]{0.70\textwidth}
-    {\large\bfseries\color{darkblue} About the Author}\par
-    \vspace{0.3cm}
-    {\small\color{charcoal}
-    \textbf{Kevin Robinson} | CISSP, DDN.QTE, Associate C|CISO is a seasoned cybersecurity executive specializing in strategic corporate governance, fiduciary risk mitigation, and fractional vCISO leadership. With extensive technical foresight, he helps organizations bridge the gap between complex structural vulnerabilities and boardroom risk management metrics.
-    }
+\begin{minipage}[c]{0.70\linewidth}
+  {\cybheadfont\large\color{darkblue} About the Author\par}
+  \vspace{0.3cm}
+  {\small\color{charcoal}
+$if(author-bio)$
+  $author-bio$
+$else$
+  \textbf{Kevin Robinson} | CISSP, DDN.QTE, Associate C|CISO is a seasoned cybersecurity executive specializing in strategic corporate governance, fiduciary risk mitigation, and fractional vCISO leadership. With extensive technical foresight, he helps organizations bridge the gap between complex structural vulnerabilities and boardroom risk management metrics.
+$endif$
+  }
 \end{minipage}
 \end{tcolorbox}
-
-\vspace{1cm}
+$endif$
 \vfill
-{\footnotesize\color{gray} \copyright\ 2026 Cybertechna LLC. All rights reserved. | Strategic Advisory \& Cyber Governance Services}
-
+\begin{center}
+{\footnotesize\color{cybermuted} \copyright\ 2026 Cybertechna LLC. All rights reserved. | Strategic Advisory \& Cyber Governance Services}
+\end{center}
+$endif$
+$for(include-after)$
+$include-after$
+$endfor$
 \end{document}
-

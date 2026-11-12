@@ -1,0 +1,11 @@
+# Pandoc defaults for: Checklist. Paths are relative to .pandoc/ (the builder runs pandoc from there).
+from: markdown+lists_without_preceding_blankline-implicit_figures+task_lists
+pdf-engine: lualatex
+template: templates/checklist.latex
+filters:
+  - filters/cybertechna.lua
+  - filters/cybertechna-tables.lua
+syntax-highlighting: none
+metadata:
+  doc-type: "Checklist"
+

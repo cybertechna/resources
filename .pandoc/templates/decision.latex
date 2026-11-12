@@ -1,0 +1,95 @@
+% Cybertechna decision record / guide: compact title block on page one, no cover. For 1 to 6 pages.
+% Used for the `decision` and `guide` types (they differ only in their defaults file).
+% Pandoc LaTeX template, engine lualatex. Shares cybertechna-common.latex.
+% Metadata read: title, subtitle, lead, abstract (a "Summary" card), decision (a dark "Decision" card), stats, author, owner,
+% audience, applies-to, time, date, due-date, version, status, classification, doc-type, category, series, toc, toc-depth,
+% numbersections, fontsize, margin, margins, org.
+\documentclass[$if(fontsize)$$fontsize$$else$10pt$endif$,letterpaper]{article}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+$if(numbersections)$
+\setcounter{secnumdepth}{$if(secnumdepth)$$secnumdepth$$else$3$endif$}
+$else$
+\setcounter{secnumdepth}{-\maxdimen}
+$endif$
+$fonts.latex()$
+\usepackage[$if(margin)$margin=$margin$$elseif(margin-x)$left=$margin-x$,right=$margin-x$,top=1in,bottom=1in$else$left=1.1in,right=1.1in,top=1in,bottom=1in$endif$,headheight=14pt,footskip=30pt]{geometry}
+$common.latex()$
+$cybertechna-common.latex()$
+$for(header-includes)$
+$header-includes$
+$endfor$
+$after-header-includes.latex()$
+$hypersetup.latex()$
+\hypersetup{colorlinks=true,linkcolor=darkblue,urlcolor=cyberblue,citecolor=cyberblue,filecolor=cyberblue,pdfborder={0 0 0},breaklinks=true}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{}
+
+\newcommand{\cybdoctype}{$if(doc-type)$$doc-type$$else$Decision Record$endif$}
+
+$if(numbersections)$
+\titleformat{\section}[hang]{\cybnohyph\cybheadfont\fontsize{19}{22}\selectfont\color{darkblue}}{{\color{cyberblue}\thesection}}{0.7em}{}[\cybheadrule]
+$endif$
+
+\newcommand{\cybtitleblock}{%
+  \thispagestyle{cybfirst}%
+  \noindent\includegraphics[height=0.3in]{\cyblogosmall}\hfill{\color{cybermuted}\cybcapsfont\fontsize{6.5}{8}\selectfont\MakeUppercase{$if(classification)$$classification$$else$$if(series)$$series$$else$Cybertechna LLC$endif$$endif$}}\par
+  \vspace{1.4em}
+  \cybeyebrow{\cybdoctype}\vspace{0.6em}
+  {\cybnohyph\cybdisplayfont\fontsize{24}{27}\selectfont\color{darkblue} $title$\par}
+$if(subtitle)$
+  \vspace{0.5em}{\fontsize{11.5}{17}\selectfont\color{cybermuted}$subtitle$\par}
+$endif$
+  \vspace{0.8em}
+$if(status)$
+  \cybchipbrand{$status$}\ $if(version)$\cybchip{Version $version$}\ $endif$$if(classification)$\cybchip{$classification$}$endif$\par
+  \vspace{0.8em}
+$endif$
+  {\color{cyberline}\hrule height 0.5pt}\vspace{0.7em}
+  {\fontsize{8.5}{11}\selectfont
+  \cybmeta{Date}{$date$}%
+  \cybmeta{Due}{$due-date$}%
+  \cybmeta{Author}{$for(author)$$author$$sep$, $endfor$}%
+  \cybmeta{Owner}{$owner$}%
+  \cybmeta{Audience}{$audience$}%
+  \cybmeta{Applies to}{$applies-to$}%
+  \cybmeta{Time}{$time$}\par}
+$if(lead)$
+  \vspace{1em}\cyblead{$lead$}
+$endif$
+$if(stats-tex)$
+  \vspace{1em}
+  $stats-tex$
+$endif$
+$if(decision)$
+  \vspace{0.4em}
+  \begin{cybdecision}[$if(decision-title)$$decision-title$$else$Decision$endif$]
+  $decision$
+  \end{cybdecision}
+$endif$
+$if(abstract)$
+  \vspace{0.4em}
+  \begin{cybnote}[$if(summary-title)$$summary-title$$else$Summary$endif$]
+  $abstract$
+  \end{cybnote}
+$endif$
+  \vspace{0.3em}
+}
+
+\begin{document}
+$for(include-before)$
+$include-before$
+$endfor$
+\cybtitleblock
+$if(toc)$
+{
+\hypersetup{linkcolor=darkblue}
+\setcounter{tocdepth}{$if(toc-depth)$$toc-depth$$else$1$endif$}
+\renewcommand{\contentsname}{$if(toc-title)$$toc-title$$else$Contents$endif$}
+\small\tableofcontents
+}
+$endif$
+$body$
+$for(include-after)$
+$include-after$
+$endfor$
+\end{document}

@@ -1,0 +1,104 @@
+% Cybertechna briefing: 2 to 5 pages, no cover. Logo row, full-width navy band with the title, lead, stat tiles,
+% a "Bottom line" card, then the body and an optional closing call to action.
+% Pandoc LaTeX template, engine lualatex. Shares cybertechna-common.latex.
+% Metadata read: title, subtitle, lead, abstract (the bottom line), stats (value/label pairs), author, date, audience,
+% category (band label and running header), series (footer), version, status, classification, cta, cta-title,
+% toc, toc-depth, numbersections, fontsize, margin, margins, org.
+\documentclass[$if(fontsize)$$fontsize$$else$10pt$endif$,letterpaper]{article}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+$if(numbersections)$
+\setcounter{secnumdepth}{$if(secnumdepth)$$secnumdepth$$else$3$endif$}
+$else$
+\setcounter{secnumdepth}{-\maxdimen}
+$endif$
+$fonts.latex()$
+\usepackage[$if(margin)$margin=$margin$$elseif(margin-x)$left=$margin-x$,right=$margin-x$,top=0.9in,bottom=1in$else$left=1.1in,right=1.1in,top=0.9in,bottom=1in$endif$,headheight=14pt,footskip=30pt]{geometry}
+$common.latex()$
+$cybertechna-common.latex()$
+$for(header-includes)$
+$header-includes$
+$endfor$
+$after-header-includes.latex()$
+$hypersetup.latex()$
+\hypersetup{colorlinks=true,linkcolor=darkblue,urlcolor=cyberblue,citecolor=cyberblue,filecolor=cyberblue,pdfborder={0 0 0},breaklinks=true}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{}
+
+\newcommand{\cybdoctype}{$if(category)$$category$$elseif(doc-type)$$doc-type$$else$Briefing$endif$}
+
+$if(numbersections)$
+\titleformat{\section}[hang]{\cybnohyph\cybheadfont\fontsize{19}{22}\selectfont\color{darkblue}}{{\color{cyberblue}\thesection}}{0.7em}{}[\cybheadrule]
+$endif$
+
+% Full-width band. The offset is the left page margin as set by geometry.
+\newlength{\cybbleed}
+\AtBeginDocument{\setlength{\cybbleed}{\dimexpr 1in+\oddsidemargin\relax}}
+\newcommand{\cybtitleblock}{%
+  \thispagestyle{cybfirst}%
+  \noindent\includegraphics[height=0.3in]{\cyblogosmall}\hfill{\color{cybermuted}\cybcapsfont\fontsize{6.5}{8}\selectfont\MakeUppercase{$if(classification)$$classification$$else$Briefing$endif$}}\par
+  \vspace{1.1em}
+  \noindent
+  \begin{tcolorbox}[enhanced,frame hidden,boxrule=0pt,sharp corners,
+    interior style={left color=darkblue,right color=navyblue,shading angle=0},
+    width=\paperwidth,left=\cybbleed,right=\cybbleed,top=0.36in,bottom=0.42in,
+    enlarge left by=-\cybbleed,enlarge right by=-\cybbleed,
+    overlay={\fill[cyberblue] (frame.south west) rectangle ([xshift=0.5\paperwidth,yshift=5pt]frame.south west);
+             \fill[cyberred] ([xshift=0.5\paperwidth]frame.south west) rectangle ([xshift=0.62\paperwidth,yshift=5pt]frame.south west);},
+    before skip=0pt,after skip=0pt]
+    \color{white}\cybeyebrow[white!70!cyberblue]{\cybdoctype}\vspace{0.8em}
+    {\cybnohyph\cybdisplayfont\fontsize{27}{31}\selectfont $title$\par}
+$if(subtitle)$
+    \vspace{1.1em}{\fontsize{11.5}{17}\selectfont\color{white!78!darkblue}\begin{minipage}{0.88\linewidth}\raggedright $subtitle$\end{minipage}\par}
+$endif$
+  \end{tcolorbox}
+  \vspace{0.9em}
+  {\fontsize{8.5}{11}\selectfont
+  \cybmeta{Date}{$date$}%
+  \cybmeta{Prepared by}{$for(author)$$author$$sep$, $endfor$}%
+  \cybmeta{For}{$audience$}%
+  \cybmeta{Version}{$version$}%
+  \cybmeta{Status}{$status$}\par}
+$if(lead)$
+  \vspace{1.2em}\cyblead{$lead$}
+$endif$
+$if(stats-tex)$
+  \vspace{1.2em}
+  $stats-tex$
+$endif$
+$if(abstract)$
+  \vspace{0.6em}
+  \begin{cybnote}[$if(summary-title)$$summary-title$$else$Bottom line$endif$]
+  $abstract$
+  \end{cybnote}
+$endif$
+  \vspace{0.4em}
+}
+
+\begin{document}
+$for(include-before)$
+$include-before$
+$endfor$
+\cybtitleblock
+$if(toc)$
+{
+\hypersetup{linkcolor=darkblue}
+\setcounter{tocdepth}{$if(toc-depth)$$toc-depth$$else$1$endif$}
+\renewcommand{\contentsname}{$if(toc-title)$$toc-title$$else$Contents$endif$}
+\small\tableofcontents
+}
+$endif$
+$body$
+$if(cta)$
+
+\Needspace{8\baselineskip}
+\begin{cybdecision}[$if(cta-title)$$cta-title$$else$Next step$endif$]
+$cta$
+
+\vspace{0.3em}
+{\hypersetup{urlcolor=white}\small\color{white} \href{mailto:info@cybertechna.com}{\nolinkurl{info@cybertechna.com}} \ \textperiodcentered\ \href{tel:8507371706}{850-737-1706}}
+\end{cybdecision}
+$endif$
+$for(include-after)$
+$include-after$
+$endfor$
+\end{document}
