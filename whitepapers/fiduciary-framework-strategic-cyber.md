@@ -1,21 +1,32 @@
 ---
 # Document metadata
 title: "The Fiduciary Framework: \\ Alighing Systemic Cybersecurity with Boardroom
-Strategy"
+  Strategy"
 subtitle: "Mapping technical vulnerability telemetry straight into corporate
-financial models"
+  financial models"
 author: "Kevin Robinson | CISSP, DDN.QTE, Associate C|CISO"
 date: "2026-07-08"
 preparedby: "Cybertechna LLC"
 audience: "Board Directors, Managing Directors, Chief Financial Officers, Chief
-Information Officers"
+  Information Officers"
 category: "BOARDROOM RESPONSIBILITIES"
 series: "Oversight & Fiduciary"
 header: "RESPONSIBLE CORPORATE GOVERNANCE"
 
 #Colors
 topcolor: "navyblue"
-bottomcolor: "cyberblue"
+bottomcolor: "darkblue"
+
+# Website card (read by publish-resource.py; pandoc ignores it)
+resource:
+  id: c57213b5-a870-4737-bb00-de2460fea465
+  slug: fiduciary-framework-whitepaper
+  kind: Whitepaper
+  title: "The Fiduciary Framework: Aligning Systemic Cyber Security with Boardroom Strategy"
+  card-title: "The Fiduciary Framework Whitepaper"
+  summary: "An executive analysis mapping technical vulnerability telemetry straight into corporate financial liability management models."
+  cta: "Get the whitepaper"
+  order: 20
 
 # Output Control
 output-file: "../PDFs/cybertechna_fiduciary_cyber_boardroom.pdf"

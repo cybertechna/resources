@@ -10,6 +10,17 @@ category: "CYBERTECHNA EXECUTIVE BRIEFING"
 series: "Securing the Future: The Strategic CISO"
 header: "STRATEGIC CORPORATE GOVERNANCE"
 
+# Website card (read by publish-resource.py; pandoc ignores it)
+resource:
+  id: ab9967d8-31c2-4ad2-a0d3-1dc55fb5037e
+  slug: ciso-strategic-executive
+  kind: Whitepaper
+  title: "The Strategic Imperative: Why Every Board and C-Suite Needs a Dedicated CISO"
+  card-title: "Why Boards Need a CISO"
+  summary: "CISOs on the Board elevate corporate governance to a strategic imperative and turn information security into a core business enabler."
+  cta: "Get the whitepaper"
+  order: 10
+
 # Output Control
 output-file: "../PDFs/cybertechna_strategic_ciso_whitepaper.pdf"
 template: "../.pandoc/templates/whitepaper.latex"
