@@ -1,6 +1,6 @@
 ---
 # Document metadata
-title: "The Strategic CISO: \\ Aligning Risk Manamgement with C-suite Governance"
+title: "The Strategic CISO: \\ Aligning Risk Management with C-suite Governance"
 subtitle: "Ensuring Corporate Resilience and Value Creation Through Executive Integration"
 author: "Kevin Robinson | CISSP, DDN.QTE, Associate C|CISO"
 date: "2026-08-09"
@@ -9,6 +9,18 @@ audience: "Chief Executive Officers, Board Directors, Managing Directors"
 category: "STRATEGIC EXECUTIVE BRIEFING"
 series: "The Strategic CISO"
 header: "RESILIENCE CORPORATE GOVERNANCE"
+
+# Website card (read by publish-resource.py; pandoc ignores and UUID is generated)
+resource:
+  id: 6725e38d-b398-457a-a096-d2f0a211d529
+  slug: risk-aligned-governance
+  kind: Whitepaper
+  title: "The Strategic CISO: Aligning Risk Management with C-suite Governance"
+  card-title: "CISOs Aligning Risk Management"
+  summary: "For proper execution across the organization risk management needs to be
+    aligned at the C-suite level and the CISO needs to lead it."
+  cta: "Align your risk"
+  order: 15
 
 # Output Control
 output-file: "../PDFs/cybertechna_csuite-governance-whitepaper.pdf"

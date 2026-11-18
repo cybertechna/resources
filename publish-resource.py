@@ -89,7 +89,13 @@ def ensure_id(md: Path, meta: dict) -> str:
     start = next((i for i, ln in enumerate(lines[: end or 0]) if re.match(r"^resource:\s*$", ln)), None)
     if start is None:
         die("no `resource:` block in the front matter. Add one (see ./publish-resource.py --help).")
-    lines.insert(start + 1, f"  id: {new_id}")
+    # A blank `id:` line (left as a placeholder) is filled in rather than duplicated.
+    block_end = next((i for i in range(start + 1, len(lines)) if lines[i].strip() and not lines[i].startswith((" ", "\t"))), len(lines))
+    blank = next((i for i in range(start + 1, block_end) if re.match(r"^\s+id:\s*$", lines[i])), None)
+    if blank is not None:
+        lines[blank] = f"  id: {new_id}"
+    else:
+        lines.insert(start + 1, f"  id: {new_id}")
     md.write_text("\n".join(lines), encoding="utf-8")
     print(f"generated id {new_id} and wrote it into {md.name}")
     return new_id
