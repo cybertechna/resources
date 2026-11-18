@@ -26,7 +26,7 @@ resource:
   card-title: "The Fiduciary Framework Whitepaper"
   summary: "An executive analysis mapping technical vulnerability telemetry straight into corporate financial liability management models."
   cta: "Get the whitepaper"
-  order: 20
+  order: 90
 
 # Output Control
 output-file: "../PDFs/cybertechna_fiduciary_cyber_boardroom.pdf"

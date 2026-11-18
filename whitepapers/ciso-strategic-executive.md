@@ -19,7 +19,7 @@ resource:
   card-title: "Why Boards Need a CISO"
   summary: "CISOs on the Board elevate corporate governance to a strategic imperative and turn information security into a core business enabler."
   cta: "Get the whitepaper"
-  order: 10
+  order: 1
 
 # Output Control
 output-file: "../PDFs/cybertechna_strategic_ciso_whitepaper.pdf"

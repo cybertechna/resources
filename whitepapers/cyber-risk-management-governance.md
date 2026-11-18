@@ -20,7 +20,7 @@ resource:
   summary: "For proper execution across the organization risk management needs to be
     aligned at the C-suite level and the CISO needs to lead it."
   cta: "Align your risk"
-  order: 15
+  order: 100
 
 # Output Control
 output-file: "../PDFs/cybertechna_csuite-governance-whitepaper.pdf"
